@@ -2,6 +2,28 @@
 
 **A comprehensive data analytics platform demonstrating enterprise-level data engineering and analytics capabilities.**
 
+supply-chain-intelligence-hub/
+├── README.md
+├── Database/
+│   ├── schema.sql
+│   ├── sample_data.sql
+│   └── stored_procedures.sql
+├── Python/
+│   ├── requirements.txt
+│   ├── etl_pipeline.py
+│   ├── data_validation.py
+│   └── anomaly_detection.py
+├── R/
+│   ├── statistical_analysis.R
+│   ├── demand_forecasting.R
+│   └── visualization_suite.R
+├── Power BI/
+│   ├── Dashboard_Screenshot.png
+│   └── Dashboard_Guide.md
+└── Documentation/
+    ├── PROJECT_BRIEF.md
+    └── ARCHITECTURE.md
+
 ## 🎯 Project Overview
 
 This portfolio project showcases a complete **end-to-end data analytics solution** built for supply chain optimization. It demonstrates mastery across:
