@@ -1,7 +1,7 @@
 # Supply Chain Intelligence Hub
 
 **A comprehensive data analytics platform demonstrating enterprise-level data engineering and analytics capabilities.**
-
+```text
 supply-chain-intelligence-hub/
 ├── README.md
 ├── Database/
@@ -23,7 +23,7 @@ supply-chain-intelligence-hub/
 └── Documentation/
     ├── PROJECT_BRIEF.md
     └── ARCHITECTURE.md
-
+```
 ## 🎯 Project Overview
 
 This portfolio project showcases a complete **end-to-end data analytics solution** built for supply chain optimization. It demonstrates mastery across:
