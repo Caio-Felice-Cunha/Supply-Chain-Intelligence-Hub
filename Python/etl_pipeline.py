@@ -197,34 +197,3 @@ if __name__ == "__main__":
     assert validator.validate_no_future_sales(), "Sales date validation failed"
     
     print("✅ All validations passed!")
-
-
-
-
-
-
-
-
-# import os
-# import sqlalchemy
-# from dotenv import load_dotenv
-
-# # Load the file
-# load_dotenv(r"C:\Users\caiof\OneDrive\Desktop PC\Desktop\Documentos\GitHub\Supply-Chain-Intelligence-Hub\.env")
-
-# # Build the string using the variables we JUST verified worked
-# user = os.getenv('DB_USER')
-# pw = os.getenv('DB_PASSWORD')
-# host = os.getenv('DB_HOST')
-# db = os.getenv('DB_NAME')
-
-# connection_url = f"mysql+pymysql://{user}:{pw}@{host}/{db}"
-
-# print(f"Attempting to connect to {db} as {user}...")
-
-# try:
-#     engine = sqlalchemy.create_engine(connection_url)
-#     with engine.connect() as conn:
-#         print("🚀 Success! The database is reachable.")
-# except Exception as e:
-#     print(f"❌ Connection failed: {e}")
