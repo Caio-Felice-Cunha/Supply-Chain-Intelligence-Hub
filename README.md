@@ -1,6 +1,11 @@
 # Supply Chain Intelligence Hub
 
 **A comprehensive data analytics platform demonstrating enterprise-level data engineering and analytics capabilities.**
+
+
+![Uploading ChatGPT Image Jan 27, 2026, 08_48_41 PM.png…]()
+
+
 ```text
 supply-chain-intelligence-hub/
 ├── README.md
