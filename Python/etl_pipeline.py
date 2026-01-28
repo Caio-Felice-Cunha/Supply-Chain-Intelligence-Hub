@@ -1,6 +1,7 @@
 # !pip install pandas numpy sqlalchemy scipy
 # !pip install pymysql
 # !pip install cryptography
+# !pip install python-dotenv
 
 import pandas as pd
 import numpy as np
@@ -8,6 +9,20 @@ from datetime import datetime, timedelta
 import sqlalchemy
 import logging
 from scipy import stats
+import os
+from dotenv import load_dotenv
+
+load_dotenv(r"C:\Users\caiof\OneDrive\Desktop PC\Desktop\Documentos\GitHub\Supply-Chain-Intelligence-Hub\.env")
+
+DB_CONNECTION = (
+    f"mysql+pymysql://"
+    f"{os.getenv('DB_USER')}:"
+    f"{os.getenv('DB_PASSWORD')}@"
+    f"{os.getenv('DB_HOST')}/"
+    f"{os.getenv('DB_NAME')}"
+)
+
+# print(f"Connecting to: {os.getenv('DB_NAME')} as {os.getenv('DB_USER')}")
 
 # ============ CONFIGURATION ============
 logging.basicConfig(
@@ -15,7 +30,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-DB_CONNECTION = "mysql+pymysql://user:password@localhost/supply_chain_analytics"
+# DB_CONNECTION = "mysql+pymysql://user:password@localhost/supply_chain_analytics"
 
 class SupplyChainETL:
     """
@@ -171,4 +186,11 @@ if __name__ == "__main__":
     assert validator.validate_no_future_sales(), "Sales date validation failed"
     
     print("✅ All validations passed!")
+
+
+
+
+
+
+
 

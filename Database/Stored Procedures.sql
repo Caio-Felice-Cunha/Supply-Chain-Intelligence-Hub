@@ -17,7 +17,8 @@ BEGIN
         FROM products p
         JOIN inventory i ON p.product_id = i.product_id
         LEFT JOIN sales s ON p.product_id = s.product_id
-        WHERE i.snapshot_date = CURDATE()
+        -- WHERE i.snapshot_date = CURDATE()
+        WHERE i.snapshot_date = (SELECT MAX(snapshot_date) FROM inventory)
         GROUP BY p.product_id, p.product_name
     )
     SELECT 
