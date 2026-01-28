@@ -3,7 +3,8 @@
 **A comprehensive data analytics platform demonstrating enterprise-level data engineering and analytics capabilities.**
 
 
-![Uploading ChatGPT Image Jan 27, 2026, 08_48_41 PM.png…]()
+<img width="1065" height="702" alt="image" src="https://github.com/user-attachments/assets/82815622-f52f-4ad4-b891-4321da712cf5" />
+
 
 
 ```text
