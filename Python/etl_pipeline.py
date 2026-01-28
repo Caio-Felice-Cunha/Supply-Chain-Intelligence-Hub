@@ -115,6 +115,14 @@ class SupplyChainETL:
         # Create staging table
         staging_table = f"{table_name}_staging"
         df.to_sql(staging_table, self.engine, if_exists='replace', index=False)
+
+
+        with self.engine.connect() as conn:
+            # ✅ Create main table if it doesn't exist
+            conn.execute(text(f"""
+                CREATE TABLE IF NOT EXISTS {table_name} LIKE {staging_table}
+            """))
+            conn.commit()
         
         # Merge into main table (UPSERT)
         with self.engine.connect() as conn:
