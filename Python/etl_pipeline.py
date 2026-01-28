@@ -11,6 +11,7 @@ import logging
 from scipy import stats
 import os
 from dotenv import load_dotenv
+from sqlalchemy import text, create_engine
 
 load_dotenv(r"C:\Users\caiof\OneDrive\Desktop PC\Desktop\Documentos\GitHub\Supply-Chain-Intelligence-Hub\.env")
 
@@ -108,6 +109,8 @@ class SupplyChainETL:
     def load_to_warehouse(self, df, table_name):
         """Load cleaned data to data warehouse"""
         self.logger.info(f"Loading {len(df)} records to {table_name}...")
+
+        from sqlalchemy import text
         
         # Create staging table
         staging_table = f"{table_name}_staging"
@@ -115,10 +118,10 @@ class SupplyChainETL:
         
         # Merge into main table (UPSERT)
         with self.engine.connect() as conn:
-            conn.execute(f"""
+            conn.execute(text(f"""
                 REPLACE INTO {table_name}
                 SELECT * FROM {staging_table}
-            """)
+            """))
             conn.commit()
         
         self.logger.info(f"Successfully loaded to {table_name}")
@@ -194,3 +197,26 @@ if __name__ == "__main__":
 
 
 
+# import os
+# import sqlalchemy
+# from dotenv import load_dotenv
+
+# # Load the file
+# load_dotenv(r"C:\Users\caiof\OneDrive\Desktop PC\Desktop\Documentos\GitHub\Supply-Chain-Intelligence-Hub\.env")
+
+# # Build the string using the variables we JUST verified worked
+# user = os.getenv('DB_USER')
+# pw = os.getenv('DB_PASSWORD')
+# host = os.getenv('DB_HOST')
+# db = os.getenv('DB_NAME')
+
+# connection_url = f"mysql+pymysql://{user}:{pw}@{host}/{db}"
+
+# print(f"Attempting to connect to {db} as {user}...")
+
+# try:
+#     engine = sqlalchemy.create_engine(connection_url)
+#     with engine.connect() as conn:
+#         print("🚀 Success! The database is reachable.")
+# except Exception as e:
+#     print(f"❌ Connection failed: {e}")
