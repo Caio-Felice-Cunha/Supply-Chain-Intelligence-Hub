@@ -10,25 +10,23 @@
 ```text
 supply-chain-intelligence-hub/
 ├── README.md
-├── Database/
-│   ├── schema.sql
-│   ├── sample_data.sql
-│   └── stored_procedures.sql
-├── Python/
-│   ├── requirements.txt
-│   ├── etl_pipeline.py
-│   ├── data_validation.py
-│   └── anomaly_detection.py
-├── R/
-│   ├── statistical_analysis.R
-│   ├── demand_forecasting.R
-│   └── visualization_suite.R
-├── Power BI/
-│   ├── Dashboard_Screenshot.png
-│   └── Dashboard_Guide.md
-└── Documentation/
-    ├── PROJECT_BRIEF.md
-    └── ARCHITECTURE.md
+Supply-Chain-Intelligence-Hub
+├── docker/
+│   ├── Dockerfile.python        # Python analytics engine
+│   ├── Dockerfile.r             # R analytics engine
+│   └── Dockerfile.database      # PostgreSQL with sample data
+├── docker-compose.yml           # Orchestrates all 3
+├── .dockerignore
+├── data/
+│   └── sample_data.csv
+├── scripts/
+│   ├── python_analysis.py
+│   ├── r_analysis.R
+│   └── init_database.sql
+├── requirements.txt             # Python dependencies
+├── environment.yml              # R dependencies
+└── README.md
+
 ```
 ## 🎯 Project Overview
 
