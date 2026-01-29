@@ -419,7 +419,8 @@ INSERT INTO price_history (product_id, supplier_id, unit_price, effective_date) 
 -- (Triples the dataset size)
 -- ============================================
 
-USE supply_chain_analytics;
+# USE supply_chain_analytics;
+USE supply_chain_db;
 
 -- ============ INSERT ADDITIONAL SUPPLIERS ============
 INSERT INTO suppliers (supplier_name, country, reliability_score, lead_time_days) VALUES

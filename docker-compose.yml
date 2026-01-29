@@ -14,7 +14,7 @@ services:
       MYSQL_USER: ${MYSQL_USER:-analytics_user}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-analyticspass123}
     ports:
-      - "3306:3306"  # Expose on localhost:3306
+      - "3307:3306"  # Expose on localhost:3306
     volumes:
       - mysql_data:/var/lib/mysql  # Persistent data storage
       - ./sql:/docker-entrypoint-initdb.d  # Auto-run SQL scripts on startup
@@ -34,11 +34,12 @@ services:
       context: .
       dockerfile: docker/Dockerfile.jupyter
     container_name: supply-chain-jupyter
+    user: "1000:100"  # Run as jovyan user (fixes permissions)
     depends_on:
       mysql:
         condition: service_healthy  # Wait for MySQL to be ready
     ports:
-      - "8888:8888"  # Jupyter runs on localhost:8888
+      - "8889:8888"  # Jupyter runs on localhost:8888
     volumes:
       - ./notebooks:/home/jovyan/work/notebooks  # Mount notebooks folder
       - ./data:/home/jovyan/work/data  # Mount data folder
@@ -50,7 +51,7 @@ services:
       - analytics-network
     command: >
       jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
-      --allow-root --NotebookApp.token='analytics'
+      --NotebookApp.token='analytics'
 
 networks:
   analytics-network:
