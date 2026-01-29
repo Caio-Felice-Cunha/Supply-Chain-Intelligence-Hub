@@ -1,0 +1,61 @@
+# Define the services that will run together
+services:
+  # ============================================
+  # MySQL Database Service
+  # ============================================
+  mysql:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.mysql
+    container_name: supply-chain-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-supply_chain_db}
+      MYSQL_USER: ${MYSQL_USER:-analytics_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-analyticspass123}
+    ports:
+      - "3306:3306"  # Expose on localhost:3306
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persistent data storage
+      - ./sql:/docker-entrypoint-initdb.d  # Auto-run SQL scripts on startup
+    networks:
+      - analytics-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+      interval: 10s
+
+  # ============================================
+  # Jupyter Notebook Service (Python + R)
+  # ============================================
+  jupyter:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.jupyter
+    container_name: supply-chain-jupyter
+    depends_on:
+      mysql:
+        condition: service_healthy  # Wait for MySQL to be ready
+    ports:
+      - "8888:8888"  # Jupyter runs on localhost:8888
+    volumes:
+      - ./notebooks:/home/jovyan/work/notebooks  # Mount notebooks folder
+      - ./data:/home/jovyan/work/data  # Mount data folder
+      - ./scripts:/home/jovyan/work/scripts  # Mount scripts folder
+    environment:
+      JUPYTER_ENABLE_LAB: "true"
+      JUPYTER_TOKEN: "analytics"  # Password: analytics
+    networks:
+      - analytics-network
+    command: >
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+      --allow-root --NotebookApp.token='analytics'
+
+networks:
+  analytics-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local

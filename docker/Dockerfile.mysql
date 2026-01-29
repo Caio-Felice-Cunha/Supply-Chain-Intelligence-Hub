@@ -1,0 +1,23 @@
+# Dockerfile for MySQL Database
+# MySQL 8.0 (latest stable)
+
+FROM mysql:8.0
+
+# Set charset and collation for better text handling
+ENV MYSQL_INITDB_SKIP_TZINFO=1
+
+# Install additional utilities (optional but helpful for debugging)
+# RUN apt-get update && apt-get install -y \
+#    curl \
+#    && rm -rf /var/lib/apt/lists/*
+
+# Default port
+EXPOSE 3306
+
+# Health check to verify MySQL is running
+HEALTHCHECK --interval=10s --timeout=5s --retries=5 \
+    CMD mysqladmin ping -h 127.0.0.1 -uroot -p${MYSQL_ROOT_PASSWORD} || exit 1
+
+# MySQL will automatically execute .sql files in /docker-entrypoint-initdb.d
+# during startup if the database doesn't exist
+# This is where your init.sql will be mounted

@@ -1,0 +1,57 @@
+# Dockerfile for Jupyter Notebook with Python 3.12 + R 4.3
+# This creates an environment with both Python and R kernels
+
+FROM jupyter/base-notebook:latest 
+
+# Switch to root to install system packages
+USER root
+
+# Update and install system dependencies for R and Python packages
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gfortran \
+    libopenblas-dev \
+    liblapack-dev \
+    libhdf5-dev \
+    libssl-dev \
+    libffi-dev \
+    libxml2-dev \
+    libpq-dev \
+    wget \
+    r-base \
+    r-base-dev \
+    r-recommended \
+    && rm -rf /var/lib/apt/lists/*
+
+# Switch back to jovyan user (Jupyter default user)
+USER jovyan
+
+# Install Python packages for data analytics
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Switch to root to install R packages
+USER root
+
+# Install IRkernel (R kernel for Jupyter)
+RUN R --vanilla -s -e 'install.packages("IRkernel", repos="http://cran.rstudio.com/"); IRkernel::installspec(user=FALSE)'
+
+# Install R packages for data analytics
+RUN R --vanilla -s -e 'install.packages(c("tidyverse", "ggplot2", "plotly", "data.table", "RMySQL", "DBI", "dplyr", "caret", "forecast", "shiny"), repos="http://cran.rstudio.com/", dependencies=TRUE)'
+
+# Switch back to jovyan user
+USER jovyan
+
+# Create working directories
+RUN mkdir -p /home/jovyan/work/notebooks \
+    && mkdir -p /home/jovyan/work/data \
+    && mkdir -p /home/jovyan/work/scripts
+
+# Set the default working directory
+WORKDIR /home/jovyan/work
+
+# Expose Jupyter port
+EXPOSE 8888
+
+# Default command starts Jupyter Lab
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root"]

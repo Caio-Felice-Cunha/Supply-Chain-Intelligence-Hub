@@ -1,1 +1,10 @@
 .env
+.env.local
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+.vscode/
+.idea/
+venv/
+node_modules/
+.DS_Store

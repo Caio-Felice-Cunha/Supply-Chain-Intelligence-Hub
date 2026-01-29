@@ -1,9 +1,108 @@
+-- # Sample SQL initialization script
+-- # This runs automatically when MySQL container starts
+-- # Creates tables for supply chain analytics
+
+CREATE DATABASE IF NOT EXISTS supply_chain_db;
+USE supply_chain_db;
+
+-- ============ DIMENSION TABLES ============
+
+-- Suppliers Table
+CREATE TABLE suppliers (
+    supplier_id INT PRIMARY KEY AUTO_INCREMENT,
+    supplier_name VARCHAR(255) NOT NULL,
+    country VARCHAR(100),
+    reliability_score DECIMAL(5, 2),
+    lead_time_days INT,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Products Table
+CREATE TABLE products (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(255) NOT NULL,
+    category VARCHAR(100),
+    unit_cost DECIMAL(10, 2),
+    reorder_level INT,
+    supplier_id INT,
+    FOREIGN KEY (supplier_id) REFERENCES suppliers(supplier_id)
+);
+
+-- Warehouses Table
+CREATE TABLE warehouses (
+    warehouse_id INT PRIMARY KEY AUTO_INCREMENT,
+    warehouse_name VARCHAR(255) NOT NULL,
+    location VARCHAR(255),
+    capacity_units INT,
+    current_utilization_pct DECIMAL(5, 2)
+);
+
+-- ============ FACT TABLES ============
+
+-- Inventory Table (Daily Snapshot)
+CREATE TABLE inventory (
+    inventory_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    warehouse_id INT NOT NULL,
+    quantity_on_hand INT,
+    quantity_reserved INT,
+    snapshot_date DATE NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(product_id),
+    FOREIGN KEY (warehouse_id) REFERENCES warehouses(warehouse_id),
+    UNIQUE KEY unique_inventory (product_id, warehouse_id, snapshot_date)
+);
+
+-- Orders Table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATE NOT NULL,
+    supplier_id INT NOT NULL,
+    order_quantity INT NOT NULL,
+    order_cost DECIMAL(15, 2),
+    expected_delivery_date DATE,
+    actual_delivery_date DATE,
+    delivery_status VARCHAR(50),
+    FOREIGN KEY (supplier_id) REFERENCES suppliers(supplier_id)
+);
+
+-- Sales Table
+CREATE TABLE sales (
+    sale_id INT PRIMARY KEY AUTO_INCREMENT,
+    sale_date DATE NOT NULL,
+    product_id INT NOT NULL,
+    warehouse_id INT NOT NULL,
+    quantity_sold INT NOT NULL,
+    revenue DECIMAL(15, 2),
+    FOREIGN KEY (product_id) REFERENCES products(product_id),
+    FOREIGN KEY (warehouse_id) REFERENCES warehouses(warehouse_id)
+);
+
+-- Price History Table
+CREATE TABLE price_history (
+    price_history_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT NOT NULL,
+    supplier_id INT NOT NULL,
+    unit_price DECIMAL(10, 2),
+    effective_date DATE NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(product_id),
+    FOREIGN KEY (supplier_id) REFERENCES suppliers(supplier_id)
+);
+
+-- Create Indexes for Performance
+CREATE INDEX idx_inventory_date ON inventory(snapshot_date);
+CREATE INDEX idx_sales_date ON sales(sale_date);
+CREATE INDEX idx_orders_date ON orders(order_date);
+CREATE INDEX idx_product_supplier ON products(supplier_id);
+
+
+-- SAMPLE DATA
+
 -- ============================================
 -- SUPPLY CHAIN INTELLIGENCE HUB
 -- Sample Data Population Script
 -- ============================================
 
-USE supply_chain_analytics;
+-- USE supply_chain_db;
 
 -- ============ INSERT SUPPLIERS ============
 INSERT INTO suppliers (supplier_name, country, reliability_score, lead_time_days) VALUES
@@ -962,3 +1061,169 @@ INSERT INTO price_history (product_id, supplier_id, unit_price, effective_date) 
 (46, 16, 234.00, '2025-09-01'),
 (46, 16, 237.00, '2025-12-01'),
 (46, 16, 234.00, '2026-01-20');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- FIRST TEST
+
+-- -- ============================================
+-- -- Products Table
+-- -- ============================================
+-- -- CREATE TABLE IF NOT EXISTS products (
+-- --     product_id INT PRIMARY KEY AUTO_INCREMENT,
+-- --     product_name VARCHAR(255) NOT NULL,
+-- --     category VARCHAR(100) NOT NULL,
+-- --     unit_cost DECIMAL(10, 2) NOT NULL,
+-- --     supplier_id INT,
+-- --     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+-- --     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+-- -- ) ENGINE=InnoDB;
+
+-- -- ============================================
+-- -- Suppliers Table
+-- -- ============================================
+-- -- CREATE TABLE IF NOT EXISTS suppliers (
+-- --     supplier_id INT PRIMARY KEY AUTO_INCREMENT,
+-- --     supplier_name VARCHAR(255) NOT NULL,
+-- --     contact_email VARCHAR(255),
+-- --     country VARCHAR(100),
+-- --     reliability_score DECIMAL(3, 2),
+-- --     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- -- ) ENGINE=InnoDB;
+
+-- -- ============================================
+-- -- Orders Table
+-- -- ============================================
+-- CREATE TABLE IF NOT EXISTS orders (
+--     order_id INT PRIMARY KEY AUTO_INCREMENT,
+--     product_id INT NOT NULL,
+--     order_quantity INT NOT NULL,
+--     order_date DATE NOT NULL,
+--     delivery_date DATE,
+--     order_status VARCHAR(50) DEFAULT 'Pending',
+--     total_amount DECIMAL(15, 2),
+--     FOREIGN KEY (product_id) REFERENCES products(product_id),
+--     INDEX idx_order_date (order_date),
+--     INDEX idx_status (order_status)
+-- ) ENGINE=InnoDB;
+
+-- -- ============================================
+-- -- Warehouse Inventory Table
+-- -- ============================================
+-- CREATE TABLE IF NOT EXISTS warehouse_inventory (
+--     inventory_id INT PRIMARY KEY AUTO_INCREMENT,
+--     product_id INT NOT NULL,
+--     warehouse_location VARCHAR(100) NOT NULL,
+--     quantity_on_hand INT NOT NULL,
+--     reorder_level INT,
+--     last_count_date DATE,
+--     FOREIGN KEY (product_id) REFERENCES products(product_id),
+--     INDEX idx_product (product_id)
+-- ) ENGINE=InnoDB;
+
+-- -- ============================================
+-- -- Shipments Table
+-- -- ============================================
+-- CREATE TABLE IF NOT EXISTS shipments (
+--     shipment_id INT PRIMARY KEY AUTO_INCREMENT,
+--     order_id INT NOT NULL,
+--     shipment_date DATE NOT NULL,
+--     delivery_date DATE,
+--     carrier VARCHAR(100),
+--     tracking_number VARCHAR(100) UNIQUE,
+--     shipment_cost DECIMAL(10, 2),
+--     status VARCHAR(50) DEFAULT 'In Transit',
+--     FOREIGN KEY (order_id) REFERENCES orders(order_id),
+--     INDEX idx_status (status)
+-- ) ENGINE=InnoDB;
+
+-- -- ============================================
+-- -- Sample Data for Testing
+-- -- ============================================
+
+-- -- Insert sample suppliers
+-- INSERT INTO suppliers (supplier_name, contact_email, country, reliability_score)
+-- VALUES 
+--     ('Global Parts Inc', 'contact@globalparts.com', 'USA', 0.95),
+--     ('AsiaTech Components', 'sales@asiatech.com', 'China', 0.88),
+--     ('European Supplies Ltd', 'info@eusupplies.com', 'Germany', 0.92),
+--     ('Midwest Distributors', 'orders@midwestdist.com', 'USA', 0.89);
+
+-- -- Insert sample products
+-- INSERT INTO products (product_name, category, unit_cost, supplier_id)
+-- VALUES 
+--     ('Electronic Control Unit', 'Electronics', 150.00, 1),
+--     ('Hydraulic Pump', 'Hydraulics', 450.00, 2),
+--     ('Steel Bearing', 'Mechanical', 25.50, 3),
+--     ('Industrial Motor', 'Motors', 890.00, 1),
+--     ('Plastic Housing', 'Components', 12.99, 4);
+
+-- -- Insert sample orders
+-- INSERT INTO orders (product_id, order_quantity, order_date, delivery_date, order_status, total_amount)
+-- VALUES 
+--     (1, 100, '2025-01-15', '2025-02-01', 'Delivered', 15000.00),
+--     (2, 50, '2025-01-20', '2025-02-10', 'In Transit', 22500.00),
+--     (3, 500, '2025-01-25', '2025-02-08', 'Pending', 12750.00),
+--     (4, 25, '2025-01-22', '2025-02-05', 'Delivered', 22250.00),
+--     (5, 1000, '2025-01-28', '2025-02-15', 'Pending', 12990.00);
+
+-- -- Insert sample warehouse inventory
+-- INSERT INTO warehouse_inventory (product_id, warehouse_location, quantity_on_hand, reorder_level, last_count_date)
+-- VALUES 
+--     (1, 'Warehouse A', 250, 100, '2026-01-20'),
+--     (2, 'Warehouse B', 80, 50, '2026-01-20'),
+--     (3, 'Warehouse A', 1500, 500, '2026-01-20'),
+--     (4, 'Warehouse C', 40, 20, '2026-01-20'),
+--     (5, 'Warehouse B', 2000, 1000, '2026-01-20');
+
+-- -- Insert sample shipments
+-- INSERT INTO shipments (order_id, shipment_date, delivery_date, carrier, tracking_number, shipment_cost, status)
+-- VALUES 
+--     (1, '2025-01-16', '2025-02-01', 'FedEx', 'FX123456789', 450.00, 'Delivered'),
+--     (2, '2025-01-21', '2025-02-10', 'UPS', 'UPS987654321', 800.00, 'In Transit'),
+--     (3, '2025-01-26', NULL, 'DHL', 'DHL555666777', 600.00, 'Processing'),
+--     (4, '2025-01-23', '2025-02-05', 'FedEx', 'FX111222333', 350.00, 'Delivered'),
+--     (5, '2025-01-29', NULL, 'UPS', 'UPS444555666', 750.00, 'Pending');
+
+-- -- Create an index for better query performance
+-- CREATE INDEX idx_supplier_product ON products(supplier_id);
+-- CREATE INDEX idx_product_order ON orders(product_id);
+
+-- -- Display confirmation
+-- SELECT 'Supply Chain Database initialized successfully!' AS status;
