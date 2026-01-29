@@ -3,7 +3,8 @@
 -- 1. Calculate Inventory Health Score (CTE + Window Functions)
 DELIMITER //
 
-CREATE PROCEDURE sp_inventory_health_analysis()
+CREATE PROCEDURE sp_inventory_health_analysis() 
+-- This procedure functions as a stock-optimization engine. It identifies which products are at risk of running out and which are tying up capital.
 BEGIN
     WITH inventory_stats AS (
         SELECT 
@@ -45,6 +46,7 @@ DELIMITER ;
 DELIMITER //
 
 CREATE PROCEDURE sp_supplier_delivery_performance()
+-- This is a scorecard for your supply chain. It moves past "how much did we buy" to "how reliable is this partner?"
 BEGIN
     SELECT 
         s.supplier_id,
@@ -71,6 +73,7 @@ DELIMITER ;
 DELIMITER //
 
 CREATE PROCEDURE sp_sales_rolling_analysis()
+-- This is the most technically complex of the three, focusing on Time-Series Analysis to smooth out daily fluctuations.
 BEGIN
     WITH daily_sales AS (
         SELECT 
