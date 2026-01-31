@@ -21,8 +21,13 @@ Supply-Chain-Intelligence-Hub
 │   └── python-insert-data.ipynb
 ├── scripts/
 │   ├── python_analysis.py
-│   ├── r_analysis.R
-│   └── init_database.sql
+│   └── r_analysis.R
+│
+├── sql/
+│   ├── 1-init.sql		 			# Database + tables
+│   ├── 2-sql-insert-data.sql 		# Insert main data into the new tables
+│   └── 3-Stored-Procedures.sql 	# For quick analytics
+│
 ├── requirements.txt             # Python dependencies
 ├── environment.yml              # R dependencies
 └── README.md
