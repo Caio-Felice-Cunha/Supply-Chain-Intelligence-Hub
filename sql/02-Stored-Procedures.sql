@@ -46,7 +46,7 @@ DELIMITER ;
 DELIMITER //
 
 CREATE PROCEDURE sp_supplier_delivery_performance()
--- This is a scorecard for your supply chain. It moves past "how much did we buy" to "how reliable is this partner?"
+-- This is a scorecard for supply chain. It moves past "how much did we buy" to "how reliable is this partner?"
 BEGIN
     SELECT 
         s.supplier_id,
