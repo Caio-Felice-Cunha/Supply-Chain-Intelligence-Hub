@@ -18,7 +18,7 @@ Supply-Chain-Intelligence-Hub
 ├── docker-compose.yml           # Orchestrates all 3
 ├── .dockerignore
 ├── data/
-│   └── sample_data.csv
+│   └── python-insert-data.ipynb
 ├── scripts/
 │   ├── python_analysis.py
 │   ├── r_analysis.R
