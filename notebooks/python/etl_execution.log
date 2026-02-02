@@ -1,0 +1,102 @@
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ================================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ETL PIPELINE EXECUTION STARTED
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ================================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Connected to database: supply_chain_db
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - 
+======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Processing table: suppliers
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Extracting data from table: suppliers
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Extracted 30 rows from suppliers
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ No duplicates found
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Standardized date column: created_date
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Adding derived columns for suppliers
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Applying business rules for suppliers
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - === Validating data quality for: suppliers ===
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Data quality validation PASSED for suppliers
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Validation passed for suppliers
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - 
+======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Processing table: products
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Extracting data from table: products
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Extracted 46 rows from products
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ No duplicates found
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Adding derived columns for products
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Applying business rules for products
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - === Validating data quality for: products ===
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Data quality validation PASSED for products
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Validation passed for products
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - 
+======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Processing table: inventory
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Extracting data from table: inventory
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Extracted 263 rows from inventory
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ No duplicates found
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Standardized date column: snapshot_date
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Adding derived columns for inventory
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Added 'quantity_available' column
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Applying business rules for inventory
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - === Validating data quality for: inventory ===
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Data quality validation PASSED for inventory
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Validation passed for inventory
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - 
+======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Processing table: orders
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Extracting data from table: orders
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Extracted 67 rows from orders
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ No duplicates found
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Standardized date column: order_date
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Standardized date column: expected_delivery_date
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Standardized date column: actual_delivery_date
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Adding derived columns for orders
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Added delivery metrics columns
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Applying business rules for orders
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - === Validating data quality for: orders ===
+2026-02-01 23:52:44 - ETL_Pipeline - WARNING - ⚠ High null count in 'actual_delivery_date': 31 (46.3%)
+2026-02-01 23:52:44 - ETL_Pipeline - WARNING - ⚠ High null count in 'delivery_delay_days': 31 (46.3%)
+2026-02-01 23:52:44 - ETL_Pipeline - ERROR - ✗ Data quality validation FAILED for orders
+2026-02-01 23:52:44 - ETL_Pipeline - WARNING - ⚠ Validation issues found in orders
+2026-02-01 23:52:44 - ETL_Pipeline - WARNING -   - Column 'actual_delivery_date' has 46.3% nulls (threshold: 5.0%)
+2026-02-01 23:52:44 - ETL_Pipeline - WARNING -   - Column 'delivery_delay_days' has 46.3% nulls (threshold: 5.0%)
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - 
+======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Processing table: sales
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ======================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Extracting data from table: sales
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Extracted 166 rows from sales
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ No duplicates found
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Standardized date column: sale_date
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Adding derived columns for sales
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Added 'unit_price' column
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Applying business rules for sales
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - === Validating data quality for: sales ===
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Data quality validation PASSED for sales
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Validation passed for sales
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ Database connection closed
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - 
+================================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ETL PIPELINE EXECUTION SUMMARY
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ================================================================================
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Start time: 2026-02-01 23:52:44.280565
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - End time: 2026-02-01 23:52:44.582971
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Duration: 0.30 seconds
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Tables processed: 5
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Total rows extracted: 572
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - Total rows loaded: 0
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ✓ All tables processed successfully
+2026-02-01 23:52:44 - ETL_Pipeline - INFO - ================================================================================
+2026-02-01 23:55:45 - ETL_Pipeline - INFO - ✓ Connected to database: supply_chain_db
+2026-02-01 23:55:45 - ETL_Pipeline - INFO - Extracting data from table: products
+2026-02-01 23:55:45 - ETL_Pipeline - INFO - ✓ Extracted 46 rows from products
+2026-02-01 23:55:45 - ETL_Pipeline - INFO - Extracting data from table: sales
+2026-02-01 23:55:45 - ETL_Pipeline - INFO - ✓ Extracted 166 rows from sales
+2026-02-01 23:55:45 - ETL_Pipeline - INFO - ✓ Database connection closed
+2026-02-01 23:56:16 - ETL_Pipeline - INFO - ✓ Connected to database: supply_chain_db
+2026-02-01 23:56:16 - ETL_Pipeline - INFO - Extracting data from table: products
+2026-02-01 23:56:16 - ETL_Pipeline - INFO - ✓ Extracted 46 rows from products
+2026-02-01 23:56:16 - ETL_Pipeline - INFO - Extracting data from table: sales
+2026-02-01 23:56:16 - ETL_Pipeline - INFO - ✓ Extracted 166 rows from sales
+2026-02-01 23:56:16 - ETL_Pipeline - INFO - ✓ Database connection closed

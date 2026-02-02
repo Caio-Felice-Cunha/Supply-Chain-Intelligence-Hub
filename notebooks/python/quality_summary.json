@@ -1,0 +1,17 @@
+{
+  "report_timestamp": "2026-02-01 23:55:45",
+  "validation_summary": {
+    "total_rules": 3,
+    "passed": 3,
+    "failed": 0,
+    "pass_rate": "100.00%"
+  },
+  "data_summary": {
+    "total_tables": 2,
+    "total_rows": 212,
+    "total_columns": 12
+  },
+  "anomaly_summary": {
+    "total_outliers_detected": 18
+  }
+}

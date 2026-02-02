@@ -1,0 +1,750 @@
+2026-01-31 22:17:37,792 - ETL_Pipeline - INFO - __init__:174 - ======================================================================
+2026-01-31 22:17:37,794 - ETL_Pipeline - INFO - __init__:175 - ETL PIPELINE INITIALIZED
+2026-01-31 22:17:37,794 - ETL_Pipeline - INFO - __init__:176 - ======================================================================
+2026-01-31 22:17:37,798 - ETL_Pipeline - ERROR - __enter__:26 - ✗ Database connection failed: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-31 22:17:37,799 - ETL_Pipeline - ERROR - run_full_pipeline:232 - ✗ Pipeline failed: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-31 22:19:06,709 - ETL_Pipeline - INFO - __init__:174 - ======================================================================
+2026-01-31 22:19:06,710 - ETL_Pipeline - INFO - __init__:175 - ETL PIPELINE INITIALIZED
+2026-01-31 22:19:06,711 - ETL_Pipeline - INFO - __init__:176 - ======================================================================
+2026-01-31 22:19:06,715 - ETL_Pipeline - INFO - __enter__:23 - ✓ Connected to database: supply_chain_db
+2026-01-31 22:19:06,716 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:19:06,717 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: suppliers
+2026-01-31 22:19:06,718 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:19:06,718 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: suppliers
+2026-01-31 22:19:06,804 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 30 rows from suppliers
+2026-01-31 22:19:06,810 - ETL_Pipeline - INFO - clean_nulls:9 - Handling 0 null values using strategy: drop
+2026-01-31 22:19:06,820 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:19:06,823 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: created_date
+2026-01-31 22:19:06,824 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for suppliers
+2026-01-31 22:19:06,825 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for suppliers
+2026-01-31 22:19:06,826 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: suppliers ===
+2026-01-31 22:19:06,829 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for suppliers
+2026-01-31 22:19:06,830 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed suppliers
+2026-01-31 22:19:06,831 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:19:06,833 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: products
+2026-01-31 22:19:06,833 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:19:06,834 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: products
+2026-01-31 22:19:06,840 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 46 rows from products
+2026-01-31 22:19:06,842 - ETL_Pipeline - INFO - clean_nulls:9 - Handling 0 null values using strategy: drop
+2026-01-31 22:19:06,844 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:19:06,845 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for products
+2026-01-31 22:19:06,846 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for products
+2026-01-31 22:19:06,849 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: products ===
+2026-01-31 22:19:06,852 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for products
+2026-01-31 22:19:06,853 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed products
+2026-01-31 22:19:06,854 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:19:06,855 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: warehouses
+2026-01-31 22:19:06,856 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:19:06,857 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: warehouses
+2026-01-31 22:19:06,865 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 18 rows from warehouses
+2026-01-31 22:19:06,866 - ETL_Pipeline - INFO - clean_nulls:9 - Handling 0 null values using strategy: drop
+2026-01-31 22:19:06,868 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:19:06,869 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for warehouses
+2026-01-31 22:19:06,870 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for warehouses
+2026-01-31 22:19:06,871 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: warehouses ===
+2026-01-31 22:19:06,873 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for warehouses
+2026-01-31 22:19:06,874 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed warehouses
+2026-01-31 22:19:06,875 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:19:06,875 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: inventory
+2026-01-31 22:19:06,876 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:19:06,876 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: inventory
+2026-01-31 22:19:06,883 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 263 rows from inventory
+2026-01-31 22:19:06,884 - ETL_Pipeline - INFO - clean_nulls:9 - Handling 0 null values using strategy: drop
+2026-01-31 22:19:06,886 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:19:06,891 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: snapshot_date
+2026-01-31 22:19:06,892 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for inventory
+2026-01-31 22:19:06,894 - ETL_Pipeline - INFO - add_derived_columns:54 - ✓ Added 'quantity_available' column
+2026-01-31 22:19:06,894 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for inventory
+2026-01-31 22:19:06,895 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: inventory ===
+2026-01-31 22:19:06,900 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for inventory
+2026-01-31 22:19:06,901 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed inventory
+2026-01-31 22:19:06,902 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:19:06,902 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: orders
+2026-01-31 22:19:06,903 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:19:06,904 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: orders
+2026-01-31 22:19:06,910 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 67 rows from orders
+2026-01-31 22:19:06,912 - ETL_Pipeline - INFO - clean_nulls:9 - Handling 31 null values using strategy: drop
+2026-01-31 22:19:06,915 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:19:06,917 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: order_date
+2026-01-31 22:19:06,918 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: expected_delivery_date
+2026-01-31 22:19:06,919 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: actual_delivery_date
+2026-01-31 22:19:06,920 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for orders
+2026-01-31 22:19:06,923 - ETL_Pipeline - INFO - add_derived_columns:63 - ✓ Added delivery metrics columns
+2026-01-31 22:19:06,924 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for orders
+2026-01-31 22:19:06,926 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: orders ===
+2026-01-31 22:19:06,929 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for orders
+2026-01-31 22:19:06,930 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed orders
+2026-01-31 22:19:06,930 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:19:06,931 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: sales
+2026-01-31 22:19:06,932 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:19:06,932 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: sales
+2026-01-31 22:19:06,938 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 166 rows from sales
+2026-01-31 22:19:06,940 - ETL_Pipeline - INFO - clean_nulls:9 - Handling 0 null values using strategy: drop
+2026-01-31 22:19:06,941 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:19:06,943 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: sale_date
+2026-01-31 22:19:06,943 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for sales
+2026-01-31 22:19:06,944 - ETL_Pipeline - INFO - add_derived_columns:68 - ✓ Added 'unit_price' column
+2026-01-31 22:19:06,945 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for sales
+2026-01-31 22:19:06,946 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: sales ===
+2026-01-31 22:19:06,949 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for sales
+2026-01-31 22:19:06,950 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed sales
+2026-01-31 22:19:06,951 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:19:06,952 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: price_history
+2026-01-31 22:19:06,952 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:19:06,953 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: price_history
+2026-01-31 22:19:06,958 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 110 rows from price_history
+2026-01-31 22:19:06,960 - ETL_Pipeline - INFO - clean_nulls:9 - Handling 0 null values using strategy: drop
+2026-01-31 22:19:06,961 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:19:06,962 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: effective_date
+2026-01-31 22:19:06,963 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for price_history
+2026-01-31 22:19:06,964 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for price_history
+2026-01-31 22:19:06,964 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: price_history ===
+2026-01-31 22:19:06,968 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for price_history
+2026-01-31 22:19:06,969 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed price_history
+2026-01-31 22:19:06,970 - ETL_Pipeline - INFO - run_full_pipeline:228 - 
+======================================================================
+2026-01-31 22:19:06,971 - ETL_Pipeline - INFO - run_full_pipeline:229 - ETL PIPELINE COMPLETED
+2026-01-31 22:19:06,972 - ETL_Pipeline - INFO - run_full_pipeline:230 - ======================================================================
+2026-01-31 22:19:06,973 - ETL_Pipeline - INFO - __exit__:32 - ✓ Database connection closed
+2026-01-31 22:38:43,035 - ETL_Pipeline - INFO - __init__:174 - ======================================================================
+2026-01-31 22:38:43,036 - ETL_Pipeline - INFO - __init__:175 - ETL PIPELINE INITIALIZED
+2026-01-31 22:38:43,037 - ETL_Pipeline - INFO - __init__:176 - ======================================================================
+2026-01-31 22:38:43,047 - ETL_Pipeline - INFO - __enter__:23 - ✓ Connected to database: supply_chain_db
+2026-01-31 22:38:43,049 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:38:43,050 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: suppliers
+2026-01-31 22:38:43,051 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:38:43,051 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: suppliers
+2026-01-31 22:38:43,065 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 30 rows from suppliers
+2026-01-31 22:38:43,070 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:38:43,073 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: created_date
+2026-01-31 22:38:43,074 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for suppliers
+2026-01-31 22:38:43,075 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for suppliers
+2026-01-31 22:38:43,076 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: suppliers ===
+2026-01-31 22:38:43,079 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for suppliers
+2026-01-31 22:38:43,080 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed suppliers
+2026-01-31 22:38:43,081 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:38:43,081 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: products
+2026-01-31 22:38:43,082 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:38:43,083 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: products
+2026-01-31 22:38:43,089 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 46 rows from products
+2026-01-31 22:38:43,091 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:38:43,092 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for products
+2026-01-31 22:38:43,093 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for products
+2026-01-31 22:38:43,095 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: products ===
+2026-01-31 22:38:43,098 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for products
+2026-01-31 22:38:43,098 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed products
+2026-01-31 22:38:43,099 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:38:43,100 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: warehouses
+2026-01-31 22:38:43,100 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:38:43,101 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: warehouses
+2026-01-31 22:38:43,105 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 18 rows from warehouses
+2026-01-31 22:38:43,107 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:38:43,108 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for warehouses
+2026-01-31 22:38:43,108 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for warehouses
+2026-01-31 22:38:43,109 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: warehouses ===
+2026-01-31 22:38:43,110 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for warehouses
+2026-01-31 22:38:43,111 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed warehouses
+2026-01-31 22:38:43,112 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:38:43,112 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: inventory
+2026-01-31 22:38:43,113 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:38:43,113 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: inventory
+2026-01-31 22:38:43,121 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 263 rows from inventory
+2026-01-31 22:38:43,123 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:38:43,125 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: snapshot_date
+2026-01-31 22:38:43,126 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for inventory
+2026-01-31 22:38:43,127 - ETL_Pipeline - INFO - add_derived_columns:54 - ✓ Added 'quantity_available' column
+2026-01-31 22:38:43,128 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for inventory
+2026-01-31 22:38:43,129 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: inventory ===
+2026-01-31 22:38:43,134 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for inventory
+2026-01-31 22:38:43,135 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed inventory
+2026-01-31 22:38:43,136 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:38:43,136 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: orders
+2026-01-31 22:38:43,137 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:38:43,137 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: orders
+2026-01-31 22:38:43,142 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 67 rows from orders
+2026-01-31 22:38:43,144 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:38:43,146 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: order_date
+2026-01-31 22:38:43,147 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: expected_delivery_date
+2026-01-31 22:38:43,148 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: actual_delivery_date
+2026-01-31 22:38:43,149 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for orders
+2026-01-31 22:38:43,153 - ETL_Pipeline - INFO - add_derived_columns:63 - ✓ Added delivery metrics columns
+2026-01-31 22:38:43,154 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for orders
+2026-01-31 22:38:43,156 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: orders ===
+2026-01-31 22:38:43,158 - ETL_Pipeline - WARNING - validate_table:32 - ⚠ High null count in 'actual_delivery_date': 31 (46.3%)
+2026-01-31 22:38:43,158 - ETL_Pipeline - WARNING - validate_table:32 - ⚠ High null count in 'delivery_delay_days': 31 (46.3%)
+2026-01-31 22:38:43,162 - ETL_Pipeline - ERROR - validate_table:54 - ✗ Data quality validation FAILED for orders
+2026-01-31 22:38:43,162 - ETL_Pipeline - WARNING - run_full_pipeline:214 - ⚠ Quality validation failed for orders, skipping load
+2026-01-31 22:38:43,163 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:38:43,164 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: sales
+2026-01-31 22:38:43,165 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:38:43,165 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: sales
+2026-01-31 22:38:43,170 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 166 rows from sales
+2026-01-31 22:38:43,172 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:38:43,173 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: sale_date
+2026-01-31 22:38:43,174 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for sales
+2026-01-31 22:38:43,175 - ETL_Pipeline - INFO - add_derived_columns:68 - ✓ Added 'unit_price' column
+2026-01-31 22:38:43,176 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for sales
+2026-01-31 22:38:43,177 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: sales ===
+2026-01-31 22:38:43,181 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for sales
+2026-01-31 22:38:43,182 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed sales
+2026-01-31 22:38:43,182 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:38:43,184 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: price_history
+2026-01-31 22:38:43,184 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:38:43,185 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: price_history
+2026-01-31 22:38:43,190 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 110 rows from price_history
+2026-01-31 22:38:43,192 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:38:43,194 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: effective_date
+2026-01-31 22:38:43,194 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for price_history
+2026-01-31 22:38:43,195 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for price_history
+2026-01-31 22:38:43,196 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: price_history ===
+2026-01-31 22:38:43,201 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for price_history
+2026-01-31 22:38:43,202 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed price_history
+2026-01-31 22:38:43,203 - ETL_Pipeline - INFO - run_full_pipeline:228 - 
+======================================================================
+2026-01-31 22:38:43,204 - ETL_Pipeline - INFO - run_full_pipeline:229 - ETL PIPELINE COMPLETED
+2026-01-31 22:38:43,205 - ETL_Pipeline - INFO - run_full_pipeline:230 - ======================================================================
+2026-01-31 22:38:43,206 - ETL_Pipeline - INFO - __exit__:32 - ✓ Database connection closed
+2026-01-31 22:45:36,696 - ETL_Pipeline - INFO - __init__:174 - ======================================================================
+2026-01-31 22:45:36,698 - ETL_Pipeline - INFO - __init__:175 - ETL PIPELINE INITIALIZED
+2026-01-31 22:45:36,699 - ETL_Pipeline - INFO - __init__:176 - ======================================================================
+2026-01-31 22:45:36,708 - ETL_Pipeline - INFO - __enter__:23 - ✓ Connected to database: supply_chain_db
+2026-01-31 22:45:36,709 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:45:36,710 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: suppliers
+2026-01-31 22:45:36,711 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:45:36,712 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: suppliers
+2026-01-31 22:45:36,720 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 30 rows from suppliers
+2026-01-31 22:45:36,725 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:45:36,727 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: created_date
+2026-01-31 22:45:36,728 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for suppliers
+2026-01-31 22:45:36,728 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for suppliers
+2026-01-31 22:45:36,729 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: suppliers ===
+2026-01-31 22:45:36,732 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for suppliers
+2026-01-31 22:45:36,733 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed suppliers
+2026-01-31 22:45:36,734 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:45:36,734 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: products
+2026-01-31 22:45:36,735 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:45:36,736 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: products
+2026-01-31 22:45:36,741 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 46 rows from products
+2026-01-31 22:45:36,742 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:45:36,743 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for products
+2026-01-31 22:45:36,744 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for products
+2026-01-31 22:45:36,746 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: products ===
+2026-01-31 22:45:36,751 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for products
+2026-01-31 22:45:36,752 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed products
+2026-01-31 22:45:36,752 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:45:36,753 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: warehouses
+2026-01-31 22:45:36,754 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:45:36,755 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: warehouses
+2026-01-31 22:45:36,759 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 18 rows from warehouses
+2026-01-31 22:45:36,760 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:45:36,761 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for warehouses
+2026-01-31 22:45:36,762 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for warehouses
+2026-01-31 22:45:36,762 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: warehouses ===
+2026-01-31 22:45:36,764 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for warehouses
+2026-01-31 22:45:36,765 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed warehouses
+2026-01-31 22:45:36,765 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:45:36,766 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: inventory
+2026-01-31 22:45:36,767 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:45:36,767 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: inventory
+2026-01-31 22:45:36,775 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 263 rows from inventory
+2026-01-31 22:45:36,776 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:45:36,782 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: snapshot_date
+2026-01-31 22:45:36,784 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for inventory
+2026-01-31 22:45:36,785 - ETL_Pipeline - INFO - add_derived_columns:54 - ✓ Added 'quantity_available' column
+2026-01-31 22:45:36,786 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for inventory
+2026-01-31 22:45:36,787 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: inventory ===
+2026-01-31 22:45:36,791 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for inventory
+2026-01-31 22:45:36,792 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed inventory
+2026-01-31 22:45:36,793 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:45:36,793 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: orders
+2026-01-31 22:45:36,794 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:45:36,795 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: orders
+2026-01-31 22:45:36,799 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 67 rows from orders
+2026-01-31 22:45:36,801 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:45:36,802 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: order_date
+2026-01-31 22:45:36,803 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: expected_delivery_date
+2026-01-31 22:45:36,805 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: actual_delivery_date
+2026-01-31 22:45:36,806 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for orders
+2026-01-31 22:45:36,810 - ETL_Pipeline - INFO - add_derived_columns:63 - ✓ Added delivery metrics columns
+2026-01-31 22:45:36,811 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for orders
+2026-01-31 22:45:36,813 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: orders ===
+2026-01-31 22:45:36,815 - ETL_Pipeline - WARNING - validate_table:32 - ⚠ High null count in 'actual_delivery_date': 31 (46.3%)
+2026-01-31 22:45:36,816 - ETL_Pipeline - WARNING - validate_table:32 - ⚠ High null count in 'delivery_delay_days': 31 (46.3%)
+2026-01-31 22:45:36,819 - ETL_Pipeline - ERROR - validate_table:54 - ✗ Data quality validation FAILED for orders
+2026-01-31 22:45:36,820 - ETL_Pipeline - WARNING - run_full_pipeline:214 - ⚠ Quality validation failed for orders, skipping load
+2026-01-31 22:45:36,820 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:45:36,821 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: sales
+2026-01-31 22:45:36,822 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:45:36,822 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: sales
+2026-01-31 22:45:36,828 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 166 rows from sales
+2026-01-31 22:45:36,829 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:45:36,831 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: sale_date
+2026-01-31 22:45:36,832 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for sales
+2026-01-31 22:45:36,833 - ETL_Pipeline - INFO - add_derived_columns:68 - ✓ Added 'unit_price' column
+2026-01-31 22:45:36,834 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for sales
+2026-01-31 22:45:36,835 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: sales ===
+2026-01-31 22:45:36,839 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for sales
+2026-01-31 22:45:36,840 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed sales
+2026-01-31 22:45:36,841 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-01-31 22:45:36,842 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: price_history
+2026-01-31 22:45:36,843 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-01-31 22:45:36,844 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: price_history
+2026-01-31 22:45:36,849 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 110 rows from price_history
+2026-01-31 22:45:36,850 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-01-31 22:45:36,851 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: effective_date
+2026-01-31 22:45:36,852 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for price_history
+2026-01-31 22:45:36,853 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for price_history
+2026-01-31 22:45:36,853 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: price_history ===
+2026-01-31 22:45:36,858 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for price_history
+2026-01-31 22:45:36,858 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed price_history
+2026-01-31 22:45:36,860 - ETL_Pipeline - INFO - run_full_pipeline:228 - 
+======================================================================
+2026-01-31 22:45:36,860 - ETL_Pipeline - INFO - run_full_pipeline:229 - ETL PIPELINE COMPLETED
+2026-01-31 22:45:36,861 - ETL_Pipeline - INFO - run_full_pipeline:230 - ======================================================================
+2026-01-31 22:45:36,862 - ETL_Pipeline - INFO - __exit__:32 - ✓ Database connection closed
+2026-02-01 16:45:02,632 - ETL_Pipeline - INFO - __init__:174 - ======================================================================
+2026-02-01 16:45:02,634 - ETL_Pipeline - INFO - __init__:175 - ETL PIPELINE INITIALIZED
+2026-02-01 16:45:02,634 - ETL_Pipeline - INFO - __init__:176 - ======================================================================
+2026-02-01 16:45:02,639 - ETL_Pipeline - INFO - __enter__:23 - ✓ Connected to database: supply_chain_db
+2026-02-01 16:45:02,640 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-02-01 16:45:02,641 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: suppliers
+2026-02-01 16:45:02,642 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-02-01 16:45:02,642 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: suppliers
+2026-02-01 16:45:02,650 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 30 rows from suppliers
+2026-02-01 16:45:02,654 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-02-01 16:45:02,656 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: created_date
+2026-02-01 16:45:02,657 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for suppliers
+2026-02-01 16:45:02,657 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for suppliers
+2026-02-01 16:45:02,658 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: suppliers ===
+2026-02-01 16:45:02,661 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for suppliers
+2026-02-01 16:45:02,662 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed suppliers
+2026-02-01 16:45:02,663 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-02-01 16:45:02,663 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: products
+2026-02-01 16:45:02,664 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-02-01 16:45:02,665 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: products
+2026-02-01 16:45:02,669 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 46 rows from products
+2026-02-01 16:45:02,671 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-02-01 16:45:02,672 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for products
+2026-02-01 16:45:02,672 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for products
+2026-02-01 16:45:02,674 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: products ===
+2026-02-01 16:45:02,677 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for products
+2026-02-01 16:45:02,678 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed products
+2026-02-01 16:45:02,679 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-02-01 16:45:02,679 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: warehouses
+2026-02-01 16:45:02,680 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-02-01 16:45:02,681 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: warehouses
+2026-02-01 16:45:02,685 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 18 rows from warehouses
+2026-02-01 16:45:02,687 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-02-01 16:45:02,688 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for warehouses
+2026-02-01 16:45:02,688 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for warehouses
+2026-02-01 16:45:02,689 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: warehouses ===
+2026-02-01 16:45:02,691 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for warehouses
+2026-02-01 16:45:02,692 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed warehouses
+2026-02-01 16:45:02,692 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-02-01 16:45:02,693 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: inventory
+2026-02-01 16:45:02,693 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-02-01 16:45:02,694 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: inventory
+2026-02-01 16:45:02,698 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 263 rows from inventory
+2026-02-01 16:45:02,700 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-02-01 16:45:02,703 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: snapshot_date
+2026-02-01 16:45:02,704 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for inventory
+2026-02-01 16:45:02,705 - ETL_Pipeline - INFO - add_derived_columns:54 - ✓ Added 'quantity_available' column
+2026-02-01 16:45:02,706 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for inventory
+2026-02-01 16:45:02,707 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: inventory ===
+2026-02-01 16:45:02,711 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for inventory
+2026-02-01 16:45:02,713 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed inventory
+2026-02-01 16:45:02,714 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-02-01 16:45:02,714 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: orders
+2026-02-01 16:45:02,715 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-02-01 16:45:02,716 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: orders
+2026-02-01 16:45:02,720 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 67 rows from orders
+2026-02-01 16:45:02,722 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-02-01 16:45:02,723 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: order_date
+2026-02-01 16:45:02,725 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: expected_delivery_date
+2026-02-01 16:45:02,726 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: actual_delivery_date
+2026-02-01 16:45:02,727 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for orders
+2026-02-01 16:45:02,730 - ETL_Pipeline - INFO - add_derived_columns:63 - ✓ Added delivery metrics columns
+2026-02-01 16:45:02,731 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for orders
+2026-02-01 16:45:02,733 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: orders ===
+2026-02-01 16:45:02,735 - ETL_Pipeline - WARNING - validate_table:32 - ⚠ High null count in 'actual_delivery_date': 31 (46.3%)
+2026-02-01 16:45:02,736 - ETL_Pipeline - WARNING - validate_table:32 - ⚠ High null count in 'delivery_delay_days': 31 (46.3%)
+2026-02-01 16:45:02,742 - ETL_Pipeline - ERROR - validate_table:54 - ✗ Data quality validation FAILED for orders
+2026-02-01 16:45:02,743 - ETL_Pipeline - WARNING - run_full_pipeline:214 - ⚠ Quality validation failed for orders, skipping load
+2026-02-01 16:45:02,744 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-02-01 16:45:02,745 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: sales
+2026-02-01 16:45:02,746 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-02-01 16:45:02,746 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: sales
+2026-02-01 16:45:02,752 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 166 rows from sales
+2026-02-01 16:45:02,753 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-02-01 16:45:02,755 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: sale_date
+2026-02-01 16:45:02,756 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for sales
+2026-02-01 16:45:02,757 - ETL_Pipeline - INFO - add_derived_columns:68 - ✓ Added 'unit_price' column
+2026-02-01 16:45:02,758 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for sales
+2026-02-01 16:45:02,760 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: sales ===
+2026-02-01 16:45:02,765 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for sales
+2026-02-01 16:45:02,765 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed sales
+2026-02-01 16:45:02,766 - ETL_Pipeline - INFO - run_full_pipeline:196 - 
+======================================================================
+2026-02-01 16:45:02,767 - ETL_Pipeline - INFO - run_full_pipeline:197 - Processing table: price_history
+2026-02-01 16:45:02,767 - ETL_Pipeline - INFO - run_full_pipeline:198 - ======================================================================
+2026-02-01 16:45:02,768 - ETL_Pipeline - INFO - extract_table:13 - Extracting data from table: price_history
+2026-02-01 16:45:02,774 - ETL_Pipeline - INFO - extract_table:24 - ✓ Extracted 110 rows from price_history
+2026-02-01 16:45:02,775 - ETL_Pipeline - INFO - remove_duplicates:32 - ✓ No duplicates found
+2026-02-01 16:45:02,777 - ETL_Pipeline - INFO - standardize_dates:43 - ✓ Standardized date column: effective_date
+2026-02-01 16:45:02,777 - ETL_Pipeline - INFO - add_derived_columns:49 - Adding derived columns for price_history
+2026-02-01 16:45:02,778 - ETL_Pipeline - INFO - apply_business_rules:73 - Applying business rules for price_history
+2026-02-01 16:45:02,779 - ETL_Pipeline - INFO - validate_table:13 - === Validating data quality for: price_history ===
+2026-02-01 16:45:02,783 - ETL_Pipeline - INFO - validate_table:52 - ✓ Data quality validation PASSED for price_history
+2026-02-01 16:45:02,783 - ETL_Pipeline - INFO - run_full_pipeline:219 - ✓ Successfully processed price_history
+2026-02-01 16:45:02,785 - ETL_Pipeline - INFO - run_full_pipeline:228 - 
+======================================================================
+2026-02-01 16:45:02,785 - ETL_Pipeline - INFO - run_full_pipeline:229 - ETL PIPELINE COMPLETED
+2026-02-01 16:45:02,786 - ETL_Pipeline - INFO - run_full_pipeline:230 - ======================================================================
+2026-02-01 16:45:02,787 - ETL_Pipeline - INFO - __exit__:32 - ✓ Database connection closed
+2026-02-01 16:57:44,818 - ETL_Pipeline - INFO - __init__:430 - ======================================================================
+2026-02-01 16:57:44,819 - ETL_Pipeline - INFO - __init__:431 - ETL PIPELINE INITIALIZED
+2026-02-01 16:57:44,819 - ETL_Pipeline - INFO - __init__:432 - ======================================================================
+2026-02-01 16:57:44,936 - ETL_Pipeline - INFO - __enter__:105 - ✓ Connected to database: supply_chain_db
+2026-02-01 16:57:44,937 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 16:57:44,938 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: suppliers
+2026-02-01 16:57:44,938 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 16:57:44,939 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: suppliers
+2026-02-01 16:57:44,963 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 30 rows from suppliers
+2026-02-01 16:57:44,968 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 16:57:44,970 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: created_date
+2026-02-01 16:57:44,971 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for suppliers
+2026-02-01 16:57:44,972 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for suppliers
+2026-02-01 16:57:44,972 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: suppliers ===
+2026-02-01 16:57:44,975 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for suppliers
+2026-02-01 16:57:44,975 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed suppliers
+2026-02-01 16:57:44,976 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 16:57:44,977 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: products
+2026-02-01 16:57:44,977 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 16:57:44,978 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: products
+2026-02-01 16:57:44,981 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 46 rows from products
+2026-02-01 16:57:44,982 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 16:57:44,983 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for products
+2026-02-01 16:57:44,984 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for products
+2026-02-01 16:57:44,985 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: products ===
+2026-02-01 16:57:44,989 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for products
+2026-02-01 16:57:44,990 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed products
+2026-02-01 16:57:44,991 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 16:57:44,991 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: warehouses
+2026-02-01 16:57:44,992 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 16:57:44,992 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: warehouses
+2026-02-01 16:57:44,995 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 18 rows from warehouses
+2026-02-01 16:57:44,997 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 16:57:44,998 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for warehouses
+2026-02-01 16:57:44,999 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for warehouses
+2026-02-01 16:57:44,999 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: warehouses ===
+2026-02-01 16:57:45,001 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for warehouses
+2026-02-01 16:57:45,002 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed warehouses
+2026-02-01 16:57:45,002 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 16:57:45,003 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: inventory
+2026-02-01 16:57:45,004 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 16:57:45,005 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: inventory
+2026-02-01 16:57:45,009 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 263 rows from inventory
+2026-02-01 16:57:45,012 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 16:57:45,018 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: snapshot_date
+2026-02-01 16:57:45,020 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for inventory
+2026-02-01 16:57:45,022 - ETL_Pipeline - INFO - add_derived_columns:216 - ✓ Added 'quantity_available' column
+2026-02-01 16:57:45,023 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for inventory
+2026-02-01 16:57:45,025 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: inventory ===
+2026-02-01 16:57:45,030 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for inventory
+2026-02-01 16:57:45,032 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed inventory
+2026-02-01 16:57:45,033 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 16:57:45,035 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: orders
+2026-02-01 16:57:45,036 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 16:57:45,037 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: orders
+2026-02-01 16:57:45,041 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 67 rows from orders
+2026-02-01 16:57:45,042 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 16:57:45,044 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: order_date
+2026-02-01 16:57:45,045 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: expected_delivery_date
+2026-02-01 16:57:45,047 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: actual_delivery_date
+2026-02-01 16:57:45,048 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for orders
+2026-02-01 16:57:45,051 - ETL_Pipeline - INFO - add_derived_columns:225 - ✓ Added delivery metrics columns
+2026-02-01 16:57:45,052 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for orders
+2026-02-01 16:57:45,053 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: orders ===
+2026-02-01 16:57:45,055 - ETL_Pipeline - WARNING - validate_table:288 - ⚠ High null count in 'actual_delivery_date': 31 (46.3%)
+2026-02-01 16:57:45,056 - ETL_Pipeline - WARNING - validate_table:288 - ⚠ High null count in 'delivery_delay_days': 31 (46.3%)
+2026-02-01 16:57:45,059 - ETL_Pipeline - ERROR - validate_table:310 - ✗ Data quality validation FAILED for orders
+2026-02-01 16:57:45,060 - ETL_Pipeline - WARNING - run_full_pipeline:470 - ⚠ Quality validation failed for orders, skipping load
+2026-02-01 16:57:45,061 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 16:57:45,061 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: sales
+2026-02-01 16:57:45,062 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 16:57:45,063 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: sales
+2026-02-01 16:57:45,067 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 166 rows from sales
+2026-02-01 16:57:45,070 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 16:57:45,072 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: sale_date
+2026-02-01 16:57:45,073 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for sales
+2026-02-01 16:57:45,075 - ETL_Pipeline - INFO - add_derived_columns:230 - ✓ Added 'unit_price' column
+2026-02-01 16:57:45,076 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for sales
+2026-02-01 16:57:45,078 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: sales ===
+2026-02-01 16:57:45,082 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for sales
+2026-02-01 16:57:45,083 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed sales
+2026-02-01 16:57:45,084 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 16:57:45,085 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: price_history
+2026-02-01 16:57:45,086 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 16:57:45,086 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: price_history
+2026-02-01 16:57:45,090 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 110 rows from price_history
+2026-02-01 16:57:45,092 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 16:57:45,093 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: effective_date
+2026-02-01 16:57:45,094 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for price_history
+2026-02-01 16:57:45,094 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for price_history
+2026-02-01 16:57:45,095 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: price_history ===
+2026-02-01 16:57:45,098 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for price_history
+2026-02-01 16:57:45,099 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed price_history
+2026-02-01 16:57:45,100 - ETL_Pipeline - INFO - run_full_pipeline:484 - 
+======================================================================
+2026-02-01 16:57:45,101 - ETL_Pipeline - INFO - run_full_pipeline:485 - ETL PIPELINE COMPLETED
+2026-02-01 16:57:45,101 - ETL_Pipeline - INFO - run_full_pipeline:486 - ======================================================================
+2026-02-01 16:57:45,103 - ETL_Pipeline - INFO - __exit__:114 - ✓ Database connection closed
+2026-02-01 17:15:17,975 - ETL_Pipeline - INFO - __init__:430 - ======================================================================
+2026-02-01 17:15:17,976 - ETL_Pipeline - INFO - __init__:431 - ETL PIPELINE INITIALIZED
+2026-02-01 17:15:17,977 - ETL_Pipeline - INFO - __init__:432 - ======================================================================
+2026-02-01 17:15:18,120 - ETL_Pipeline - INFO - __enter__:105 - ✓ Connected to database: supply_chain_db
+2026-02-01 17:15:18,121 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:15:18,122 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: suppliers
+2026-02-01 17:15:18,123 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:15:18,123 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: suppliers
+2026-02-01 17:15:18,149 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 30 rows from suppliers
+2026-02-01 17:15:18,154 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:15:18,155 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: created_date
+2026-02-01 17:15:18,157 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for suppliers
+2026-02-01 17:15:18,158 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for suppliers
+2026-02-01 17:15:18,158 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: suppliers ===
+2026-02-01 17:15:18,161 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for suppliers
+2026-02-01 17:15:18,161 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed suppliers
+2026-02-01 17:15:18,162 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:15:18,162 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: products
+2026-02-01 17:15:18,163 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:15:18,163 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: products
+2026-02-01 17:15:18,170 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 46 rows from products
+2026-02-01 17:15:18,172 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:15:18,173 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for products
+2026-02-01 17:15:18,173 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for products
+2026-02-01 17:15:18,175 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: products ===
+2026-02-01 17:15:18,179 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for products
+2026-02-01 17:15:18,180 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed products
+2026-02-01 17:15:18,181 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:15:18,181 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: warehouses
+2026-02-01 17:15:18,182 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:15:18,183 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: warehouses
+2026-02-01 17:15:18,189 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 18 rows from warehouses
+2026-02-01 17:15:18,190 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:15:18,191 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for warehouses
+2026-02-01 17:15:18,192 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for warehouses
+2026-02-01 17:15:18,192 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: warehouses ===
+2026-02-01 17:15:18,193 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for warehouses
+2026-02-01 17:15:18,194 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed warehouses
+2026-02-01 17:15:18,195 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:15:18,195 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: inventory
+2026-02-01 17:15:18,196 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:15:18,196 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: inventory
+2026-02-01 17:15:18,204 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 263 rows from inventory
+2026-02-01 17:15:18,206 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:15:18,209 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: snapshot_date
+2026-02-01 17:15:18,210 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for inventory
+2026-02-01 17:15:18,211 - ETL_Pipeline - INFO - add_derived_columns:216 - ✓ Added 'quantity_available' column
+2026-02-01 17:15:18,212 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for inventory
+2026-02-01 17:15:18,214 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: inventory ===
+2026-02-01 17:15:18,218 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for inventory
+2026-02-01 17:15:18,219 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed inventory
+2026-02-01 17:15:18,220 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:15:18,220 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: orders
+2026-02-01 17:15:18,221 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:15:18,221 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: orders
+2026-02-01 17:15:18,226 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 67 rows from orders
+2026-02-01 17:15:18,228 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:15:18,229 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: order_date
+2026-02-01 17:15:18,230 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: expected_delivery_date
+2026-02-01 17:15:18,231 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: actual_delivery_date
+2026-02-01 17:15:18,232 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for orders
+2026-02-01 17:15:18,235 - ETL_Pipeline - INFO - add_derived_columns:225 - ✓ Added delivery metrics columns
+2026-02-01 17:15:18,236 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for orders
+2026-02-01 17:15:18,237 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: orders ===
+2026-02-01 17:15:18,239 - ETL_Pipeline - WARNING - validate_table:288 - ⚠ High null count in 'actual_delivery_date': 31 (46.3%)
+2026-02-01 17:15:18,239 - ETL_Pipeline - WARNING - validate_table:288 - ⚠ High null count in 'delivery_delay_days': 31 (46.3%)
+2026-02-01 17:15:18,242 - ETL_Pipeline - ERROR - validate_table:310 - ✗ Data quality validation FAILED for orders
+2026-02-01 17:15:18,243 - ETL_Pipeline - WARNING - run_full_pipeline:470 - ⚠ Quality validation failed for orders, skipping load
+2026-02-01 17:15:18,244 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:15:18,245 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: sales
+2026-02-01 17:15:18,246 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:15:18,246 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: sales
+2026-02-01 17:15:18,253 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 166 rows from sales
+2026-02-01 17:15:18,254 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:15:18,256 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: sale_date
+2026-02-01 17:15:18,257 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for sales
+2026-02-01 17:15:18,258 - ETL_Pipeline - INFO - add_derived_columns:230 - ✓ Added 'unit_price' column
+2026-02-01 17:15:18,258 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for sales
+2026-02-01 17:15:18,260 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: sales ===
+2026-02-01 17:15:18,264 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for sales
+2026-02-01 17:15:18,265 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed sales
+2026-02-01 17:15:18,266 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:15:18,267 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: price_history
+2026-02-01 17:15:18,268 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:15:18,268 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: price_history
+2026-02-01 17:15:18,273 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 110 rows from price_history
+2026-02-01 17:15:18,275 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:15:18,276 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: effective_date
+2026-02-01 17:15:18,277 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for price_history
+2026-02-01 17:15:18,277 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for price_history
+2026-02-01 17:15:18,278 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: price_history ===
+2026-02-01 17:15:18,281 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for price_history
+2026-02-01 17:15:18,282 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed price_history
+2026-02-01 17:15:18,283 - ETL_Pipeline - INFO - run_full_pipeline:484 - 
+======================================================================
+2026-02-01 17:15:18,284 - ETL_Pipeline - INFO - run_full_pipeline:485 - ETL PIPELINE COMPLETED
+2026-02-01 17:15:18,284 - ETL_Pipeline - INFO - run_full_pipeline:486 - ======================================================================
+2026-02-01 17:15:18,286 - ETL_Pipeline - INFO - __exit__:114 - ✓ Database connection closed
+2026-02-01 17:53:06,340 - ETL_Pipeline - INFO - __init__:430 - ======================================================================
+2026-02-01 17:53:06,342 - ETL_Pipeline - INFO - __init__:431 - ETL PIPELINE INITIALIZED
+2026-02-01 17:53:06,343 - ETL_Pipeline - INFO - __init__:432 - ======================================================================
+2026-02-01 17:53:06,413 - ETL_Pipeline - INFO - __enter__:105 - ✓ Connected to database: supply_chain_db
+2026-02-01 17:53:06,414 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:53:06,415 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: suppliers
+2026-02-01 17:53:06,416 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:53:06,417 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: suppliers
+2026-02-01 17:53:06,462 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 30 rows from suppliers
+2026-02-01 17:53:06,472 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:53:06,473 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: created_date
+2026-02-01 17:53:06,474 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for suppliers
+2026-02-01 17:53:06,474 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for suppliers
+2026-02-01 17:53:06,475 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: suppliers ===
+2026-02-01 17:53:06,479 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for suppliers
+2026-02-01 17:53:06,480 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed suppliers
+2026-02-01 17:53:06,481 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:53:06,482 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: products
+2026-02-01 17:53:06,482 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:53:06,483 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: products
+2026-02-01 17:53:06,491 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 46 rows from products
+2026-02-01 17:53:06,496 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:53:06,497 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for products
+2026-02-01 17:53:06,498 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for products
+2026-02-01 17:53:06,501 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: products ===
+2026-02-01 17:53:06,507 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for products
+2026-02-01 17:53:06,509 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed products
+2026-02-01 17:53:06,510 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:53:06,511 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: warehouses
+2026-02-01 17:53:06,512 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:53:06,513 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: warehouses
+2026-02-01 17:53:06,520 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 18 rows from warehouses
+2026-02-01 17:53:06,523 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:53:06,524 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for warehouses
+2026-02-01 17:53:06,525 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for warehouses
+2026-02-01 17:53:06,526 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: warehouses ===
+2026-02-01 17:53:06,528 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for warehouses
+2026-02-01 17:53:06,529 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed warehouses
+2026-02-01 17:53:06,530 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:53:06,530 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: inventory
+2026-02-01 17:53:06,531 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:53:06,532 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: inventory
+2026-02-01 17:53:06,547 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 263 rows from inventory
+2026-02-01 17:53:06,549 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:53:06,557 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: snapshot_date
+2026-02-01 17:53:06,558 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for inventory
+2026-02-01 17:53:06,559 - ETL_Pipeline - INFO - add_derived_columns:216 - ✓ Added 'quantity_available' column
+2026-02-01 17:53:06,560 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for inventory
+2026-02-01 17:53:06,562 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: inventory ===
+2026-02-01 17:53:06,567 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for inventory
+2026-02-01 17:53:06,569 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed inventory
+2026-02-01 17:53:06,570 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:53:06,571 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: orders
+2026-02-01 17:53:06,572 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:53:06,573 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: orders
+2026-02-01 17:53:06,582 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 67 rows from orders
+2026-02-01 17:53:06,583 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:53:06,586 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: order_date
+2026-02-01 17:53:06,587 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: expected_delivery_date
+2026-02-01 17:53:06,589 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: actual_delivery_date
+2026-02-01 17:53:06,590 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for orders
+2026-02-01 17:53:06,598 - ETL_Pipeline - INFO - add_derived_columns:225 - ✓ Added delivery metrics columns
+2026-02-01 17:53:06,599 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for orders
+2026-02-01 17:53:06,600 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: orders ===
+2026-02-01 17:53:06,602 - ETL_Pipeline - WARNING - validate_table:288 - ⚠ High null count in 'actual_delivery_date': 31 (46.3%)
+2026-02-01 17:53:06,603 - ETL_Pipeline - WARNING - validate_table:288 - ⚠ High null count in 'delivery_delay_days': 31 (46.3%)
+2026-02-01 17:53:06,606 - ETL_Pipeline - ERROR - validate_table:310 - ✗ Data quality validation FAILED for orders
+2026-02-01 17:53:06,607 - ETL_Pipeline - WARNING - run_full_pipeline:470 - ⚠ Quality validation failed for orders, skipping load
+2026-02-01 17:53:06,608 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:53:06,609 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: sales
+2026-02-01 17:53:06,609 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:53:06,610 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: sales
+2026-02-01 17:53:06,618 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 166 rows from sales
+2026-02-01 17:53:06,620 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:53:06,622 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: sale_date
+2026-02-01 17:53:06,622 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for sales
+2026-02-01 17:53:06,624 - ETL_Pipeline - INFO - add_derived_columns:230 - ✓ Added 'unit_price' column
+2026-02-01 17:53:06,624 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for sales
+2026-02-01 17:53:06,626 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: sales ===
+2026-02-01 17:53:06,630 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for sales
+2026-02-01 17:53:06,631 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed sales
+2026-02-01 17:53:06,632 - ETL_Pipeline - INFO - run_full_pipeline:452 - 
+======================================================================
+2026-02-01 17:53:06,633 - ETL_Pipeline - INFO - run_full_pipeline:453 - Processing table: price_history
+2026-02-01 17:53:06,634 - ETL_Pipeline - INFO - run_full_pipeline:454 - ======================================================================
+2026-02-01 17:53:06,634 - ETL_Pipeline - INFO - extract_table:132 - Extracting data from table: price_history
+2026-02-01 17:53:06,640 - ETL_Pipeline - INFO - extract_table:143 - ✓ Extracted 110 rows from price_history
+2026-02-01 17:53:06,641 - ETL_Pipeline - INFO - remove_duplicates:194 - ✓ No duplicates found
+2026-02-01 17:53:06,642 - ETL_Pipeline - INFO - standardize_dates:205 - ✓ Standardized date column: effective_date
+2026-02-01 17:53:06,643 - ETL_Pipeline - INFO - add_derived_columns:211 - Adding derived columns for price_history
+2026-02-01 17:53:06,644 - ETL_Pipeline - INFO - apply_business_rules:235 - Applying business rules for price_history
+2026-02-01 17:53:06,645 - ETL_Pipeline - INFO - validate_table:269 - === Validating data quality for: price_history ===
+2026-02-01 17:53:06,648 - ETL_Pipeline - INFO - validate_table:308 - ✓ Data quality validation PASSED for price_history
+2026-02-01 17:53:06,649 - ETL_Pipeline - INFO - run_full_pipeline:475 - ✓ Successfully processed price_history
+2026-02-01 17:53:06,651 - ETL_Pipeline - INFO - run_full_pipeline:484 - 
+======================================================================
+2026-02-01 17:53:06,653 - ETL_Pipeline - INFO - run_full_pipeline:485 - ETL PIPELINE COMPLETED
+2026-02-01 17:53:06,653 - ETL_Pipeline - INFO - run_full_pipeline:486 - ======================================================================
+2026-02-01 17:53:06,655 - ETL_Pipeline - INFO - __exit__:114 - ✓ Database connection closed
+2026-02-01 09:54:28,961 - ETL_Pipeline - INFO - __init__:430 - ======================================================================
+2026-02-01 09:54:28,962 - ETL_Pipeline - INFO - __init__:431 - ETL PIPELINE INITIALIZED
+2026-02-01 09:54:28,963 - ETL_Pipeline - INFO - __init__:432 - ======================================================================
