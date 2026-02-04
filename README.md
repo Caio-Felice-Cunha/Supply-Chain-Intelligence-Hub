@@ -9,31 +9,59 @@
 
 ```text
 supply-chain-intelligence-hub/
+│
 ├── README.md
+│
 Supply-Chain-Intelligence-Hub
+│
 ├── docker/
-│   ├── Dockerfile.python        # Python analytics engine
-│   ├── Dockerfile.r             # R analytics engine
-│   └── Dockerfile.database      # PostgreSQL with sample data
-├── docker-compose.yml           # Orchestrates all 3
-├── .dockerignore
+│   ├── Dockerfile.jupyter        # Python analytics engine
+│   └── Dockerfile.mysql          # PostgreSQL with sample data
+│
 ├── data/
 │   └── python-insert-data.ipynb
+│
 ├── scripts/
-│   ├── python/
-│	│	 ├── etl_pipeline.ipynb        	   #  ETL - error handling,data quality validation, and logging.
-│   │	 ├── data_quality_framework.ipynb  #  with profiling, anomaly detection, and automated reporting.
-│   │	 └── python_analysis.ipynb
-│   └── r/
+│   ├── etl/
+│	│	 ├── __init__.py
+│	│	 ├── config.py
+│	│	 ├── connection.py
+│	│	 ├── etl_pipeline.py
+│	│	 ├── extractor.py
+│	│	 ├── loader.py
+│	│	 ├── transformer.py
+│	│    └── validator.py       
+│   └── quality/
+│		 ├── __init__.py
+│		 ├── anomaly.py
+│		 ├── profiler.py
+│		 ├── reporter.py
+│	     └── roles_engine.py
 │
 ├── sql/
 │   ├── 1-init.sql		 			# Database + tables
 │   ├── 2-sql-insert-data.sql 		# Insert main data into the new tables
 │   └── 3-Stored-Procedures.sql 	# For quick analytics
 │
+├── notebooks/
+│   ├── python/
+│	│	 ├── __init__.py
+│	│	 ├── etl.execution.log
+│	│	 ├── pipeline.py
+│	│	 ├── python_analysis.ipynb
+│	│	 ├── quality_summary.json
+│	│	 ├── run_complete_pipeline.ipynb
+│	│	 ├── supply_chain_quality_report.html
+│	│    └──  test_imports.ipynb
+│   └── Documentarion/
+│
 ├── requirements.txt             # Python dependencies
 ├── environment.yml              # R dependencies
-└── README.md
+├── .gitignore
+├── docker-compose.yml           # Orchestrates all 3
+├── LICENSE
+└── .env
+
 
 ```
 ## 🎯 Project Overview
