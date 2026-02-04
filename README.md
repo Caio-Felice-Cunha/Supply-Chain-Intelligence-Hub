@@ -20,11 +20,11 @@ Supply-Chain-Intelligence-Hub
 ├── data/
 │   └── python-insert-data.ipynb
 ├── scripts/
-│   ├── python
+│   ├── python/
 │	│	 ├── etl_pipeline.ipynb        	   #  ETL - error handling,data quality validation, and logging.
 │   │	 ├── data_quality_framework.ipynb  #  with profiling, anomaly detection, and automated reporting.
-│   │	 └── python_analysis.py
-│   └── r_analysis.R
+│   │	 └── python_analysis.ipynb
+│   └── r/
 │
 ├── sql/
 │   ├── 1-init.sql		 			# Database + tables

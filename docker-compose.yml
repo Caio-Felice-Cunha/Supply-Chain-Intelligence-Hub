@@ -41,9 +41,8 @@ services:
     ports:
       - "8889:8888"  # Jupyter runs on localhost:8888
     volumes:
-      - ./notebooks:/home/jovyan/work/notebooks  # Mount notebooks folder
-      - ./data:/home/jovyan/work/data  # Mount data folder
-      - ./scripts:/home/jovyan/work/scripts  # Mount scripts folder
+      - ./scripts-notebooks:/home/jovyan/work/scripts-notebooks  # Single mount
+      - ./data:/home/jovyan/work/data
     environment:
       JUPYTER_ENABLE_LAB: "true"
       JUPYTER_TOKEN: "analytics"  # Password: analytics
