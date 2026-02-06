@@ -34,24 +34,22 @@ services:
       context: .
       dockerfile: docker/Dockerfile.jupyter
     container_name: supply-chain-jupyter
-    user: "1000:100"  # Run as jovyan user (fixes permissions)
     depends_on:
       mysql:
-        condition: service_healthy  # Wait for MySQL to be ready
+        condition: service_healthy
     ports:
-      - "8889:8888"  # Jupyter runs on localhost:8888
+      - "8889:8888"
     volumes:
       - ./notebooks/python:/home/jovyan/work/notebooks
       - ./data:/home/jovyan/work/data
-      - ./scripts:/home/jovyan/work/scripts 
+      - ./scripts:/home/jovyan/work/scripts
     environment:
-      JUPYTER_ENABLE_LAB: "true"
-      JUPYTER_TOKEN: "analytics"  # Password: analytics
+      JUPYTER_ENABLE_LAB: "yes"
+      NB_UID: 1000
+      NB_GID: 100
     networks:
       - analytics-network
-    command: >
-      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
-      --NotebookApp.token='analytics'
+    command: ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--NotebookApp.token=analytics"]
 
 networks:
   analytics-network:
