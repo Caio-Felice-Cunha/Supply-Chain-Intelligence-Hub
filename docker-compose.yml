@@ -41,7 +41,7 @@ services:
     ports:
       - "8889:8888"  # Jupyter runs on localhost:8888
     volumes:
-      - ./scripts-notebooks:/home/jovyan/work/notebooks
+      - ./notebooks/python:/home/jovyan/work/notebooks
       - ./data:/home/jovyan/work/data
       - ./scripts:/home/jovyan/work/scripts 
     environment:

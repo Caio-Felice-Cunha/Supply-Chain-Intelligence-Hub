@@ -42,7 +42,8 @@ RUN R --vanilla -s -e 'install.packages(c("tidyverse", "ggplot2", "plotly", "dat
 # Create working directories and ensure jovyan owns them
 RUN mkdir -p /home/jovyan/work/notebooks \
     && mkdir -p /home/jovyan/work/data \
-    && mkdir -p /home/jovyan/work/scripts \  # Expects scripts folder
+    && mkdir -p /home/jovyan/work/scripts \
+    && chown -R jovyan:users /home/jovyan/work
 
 # Switch back to jovyan user
 USER jovyan
