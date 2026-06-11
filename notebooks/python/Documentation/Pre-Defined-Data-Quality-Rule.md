@@ -1,4 +1,8 @@
 # Pre-Defined Data Quality Rules
+
+All 16 rules below are implemented in `DataQualityRulesEngine.define_standard_rules`
+(`scripts/quality/rules_engine.py`) and are exercised by the test suite.
+
 ## Suppliers Table
 ✓ supplier_id_unique - Supplier ID must be unique (CRITICAL)
 
