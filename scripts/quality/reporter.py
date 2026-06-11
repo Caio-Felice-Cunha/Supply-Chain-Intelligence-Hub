@@ -83,7 +83,7 @@ class DataQualityReporter:
     @staticmethod
     def export_to_json(report_data: Dict, output_path: str = 'quality_report.json'):
         """Export report to JSON file"""
-        with open(output_path, 'w') as f:
+        with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(report_data, f, indent=2, default=str)
         print(f"✓ Report exported to: {output_path}")
     
@@ -98,7 +98,9 @@ class DataQualityReporter:
         
         passed = sum(1 for r in validation_results if r.passed)
         failed = sum(1 for r in validation_results if not r.passed)
-        
+        total = len(validation_results)
+        pass_rate = (passed / total * 100) if total > 0 else 0.0
+
         validation_rows = ""
         for result in validation_results:
             status_class = 'pass' if result.passed else 'fail'
@@ -244,7 +246,7 @@ class DataQualityReporter:
                     </div>
                     <div class="summary-card">
                         <h3>Pass Rate</h3>
-                        <div class="value">{(passed / len(validation_results) * 100):.1f}%</div>
+                        <div class="value">{pass_rate:.1f}%</div>
                     </div>
                 </div>
                 
@@ -304,7 +306,7 @@ class DataQualityReporter:
         </html>
         """
         
-        with open(output_path, 'w') as f:
+        with open(output_path, 'w', encoding='utf-8') as f:
             f.write(html_content)
-        
+
         print(f"✓ HTML report generated: {output_path}")

@@ -15,33 +15,53 @@ from .connection import DatabaseConnection
 
 class DataExtractor:
     """Extract data from various sources"""
-    
+
+    # Tables defined in sql/1-init.sql. Extraction is restricted to this
+    # allowlist so a table name can never be used to inject SQL.
+    ALLOWED_TABLES = frozenset({
+        'suppliers',
+        'products',
+        'warehouses',
+        'inventory',
+        'orders',
+        'sales',
+        'price_history',
+    })
+
     def __init__(self, connection: DatabaseConnection, logger: logging.Logger):
         self.connection = connection
         self.logger = logger
-    
+
     def extract_table(
-        self, 
-        table_name: str, 
+        self,
+        table_name: str,
         date_column: Optional[str] = None,
         start_date: Optional[datetime] = None,
         end_date: Optional[datetime] = None
     ) -> pd.DataFrame:
         """
         Extract data from a table with optional date filtering.
-        
+
         Args:
             table_name: Name of the table to extract
             date_column: Optional column name for date filtering
             start_date: Optional start date for filtering
             end_date: Optional end date for filtering
-            
+
         Returns:
             DataFrame with extracted data
+
+        Raises:
+            ValueError: If table_name is not in the allowlist.
         """
+        if table_name not in self.ALLOWED_TABLES:
+            raise ValueError(
+                f"Unknown table '{table_name}'. Allowed tables: "
+                f"{', '.join(sorted(self.ALLOWED_TABLES))}"
+            )
         try:
             self.logger.info(f"Extracting data from table: {table_name}")
-            
+
             query = f"SELECT * FROM {table_name}"
             
             if date_column and start_date and end_date:

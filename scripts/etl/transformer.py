@@ -36,7 +36,7 @@ class DataTransformer:
         elif strategy == 'fill_median':
             return df.fillna(df.median(numeric_only=True))
         elif strategy == 'fill_forward':
-            return df.fillna(method='ffill')
+            return df.ffill()
         else:
             self.logger.warning(f"Unknown strategy '{strategy}', returning original DataFrame")
             return df

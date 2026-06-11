@@ -68,7 +68,16 @@ class DataQualityRulesEngine:
             severity='CRITICAL',
             description='Reliability score must be between 0 and 100'
         ))
-        
+
+        self.add_rule('suppliers', ValidationRule(
+            rule_name='lead_time_positive',
+            rule_type='validity',
+            column='lead_time_days',
+            condition=lambda df: df['lead_time_days'] > 0,
+            severity='WARNING',
+            description='Lead time must be positive'
+        ))
+
         # PRODUCTS
         self.add_rule('products', ValidationRule(
             rule_name='product_id_unique',
@@ -86,7 +95,25 @@ class DataQualityRulesEngine:
             severity='CRITICAL',
             description='Unit cost must be positive'
         ))
-        
+
+        self.add_rule('products', ValidationRule(
+            rule_name='reorder_level_valid',
+            rule_type='validity',
+            column='reorder_level',
+            condition=lambda df: df['reorder_level'] >= 0,
+            severity='WARNING',
+            description='Reorder level must be non-negative'
+        ))
+
+        self.add_rule('products', ValidationRule(
+            rule_name='product_name_not_null',
+            rule_type='completeness',
+            column='product_name',
+            threshold=0.0,
+            severity='CRITICAL',
+            description='Product name is required'
+        ))
+
         # INVENTORY
         self.add_rule('inventory', ValidationRule(
             rule_name='quantity_on_hand_valid',
@@ -98,6 +125,15 @@ class DataQualityRulesEngine:
         ))
         
         self.add_rule('inventory', ValidationRule(
+            rule_name='quantity_reserved_valid',
+            rule_type='validity',
+            column='quantity_reserved',
+            condition=lambda df: df['quantity_reserved'] >= 0,
+            severity='CRITICAL',
+            description='Reserved quantity cannot be negative'
+        ))
+
+        self.add_rule('inventory', ValidationRule(
             rule_name='reserved_not_exceed_onhand',
             rule_type='consistency',
             column='quantity_reserved',
@@ -105,7 +141,7 @@ class DataQualityRulesEngine:
             severity='CRITICAL',
             description='Reserved quantity cannot exceed quantity on hand'
         ))
-        
+
         # ORDERS
         self.add_rule('orders', ValidationRule(
             rule_name='order_quantity_positive',
@@ -115,7 +151,32 @@ class DataQualityRulesEngine:
             severity='CRITICAL',
             description='Order quantity must be positive'
         ))
-        
+
+        self.add_rule('orders', ValidationRule(
+            rule_name='order_cost_positive',
+            rule_type='validity',
+            column='order_cost',
+            condition=lambda df: df['order_cost'] >= 0,
+            severity='CRITICAL',
+            description='Order cost cannot be negative'
+        ))
+
+        self.add_rule('orders', ValidationRule(
+            rule_name='delivery_dates_logical',
+            rule_type='consistency',
+            column='actual_delivery_date',
+            # Only rows where both dates are present are checked; orders still
+            # in transit (null actual_delivery_date) are treated as valid.
+            condition=lambda df: (
+                df['actual_delivery_date'].isnull()
+                | df['expected_delivery_date'].isnull()
+                | (pd.to_datetime(df['actual_delivery_date'], errors='coerce')
+                   >= pd.to_datetime(df['expected_delivery_date'], errors='coerce'))
+            ),
+            severity='WARNING',
+            description='Actual delivery date cannot precede expected delivery date'
+        ))
+
         # SALES
         self.add_rule('sales', ValidationRule(
             rule_name='quantity_sold_positive',
@@ -124,6 +185,28 @@ class DataQualityRulesEngine:
             condition=lambda df: df['quantity_sold'] > 0,
             severity='CRITICAL',
             description='Quantity sold must be positive'
+        ))
+
+        self.add_rule('sales', ValidationRule(
+            rule_name='revenue_positive',
+            rule_type='validity',
+            column='revenue',
+            condition=lambda df: df['revenue'] >= 0,
+            severity='CRITICAL',
+            description='Revenue cannot be negative'
+        ))
+
+        self.add_rule('sales', ValidationRule(
+            rule_name='revenue_quantity_consistency',
+            rule_type='consistency',
+            column='revenue',
+            # Implied unit price (revenue / quantity_sold) must be strictly
+            # positive whenever a sale moved units. This is a real check, not
+            # the algebraic tautology used in the demo notebook.
+            condition=lambda df: (df['quantity_sold'] <= 0)
+            | (df['revenue'] / df['quantity_sold'] > 0),
+            severity='WARNING',
+            description='Implied unit price (revenue / quantity sold) must be positive'
         ))
     
     def execute_rules(self, df: pd.DataFrame, table_name: str) -> List[ValidationResult]:
@@ -161,8 +244,8 @@ class DataQualityRulesEngine:
                          total_rows: int) -> ValidationResult:
         """Check if column values are unique"""
         duplicates = df[rule.column].duplicated().sum()
-        passed = duplicates == 0
-        
+        passed = bool(duplicates == 0)
+
         return ValidationResult(
             rule_name=rule.rule_name,
             passed=passed,
@@ -178,7 +261,7 @@ class DataQualityRulesEngine:
         """Check for null/missing values"""
         null_count = df[rule.column].isnull().sum()
         null_pct = (null_count / total_rows * 100) if total_rows > 0 else 0
-        passed = null_pct <= (rule.threshold or 0.0)
+        passed = bool(null_pct <= (rule.threshold or 0.0))
         
         return ValidationResult(
             rule_name=rule.rule_name,
@@ -204,7 +287,7 @@ class DataQualityRulesEngine:
         try:
             valid = rule.condition(df)
             invalid_count = (~valid).sum()
-            passed = invalid_count == 0
+            passed = bool(invalid_count == 0)
             
             return ValidationResult(
                 rule_name=rule.rule_name,
