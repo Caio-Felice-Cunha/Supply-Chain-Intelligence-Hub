@@ -56,8 +56,6 @@ pip install -r requirements-dev.txt
 pytest
 ```
 
-CI runs the same suite on Python 3.11, 3.12, and 3.13 (see `.github/workflows/tests.yml`).
-
 ## Project structure
 
 ```text
