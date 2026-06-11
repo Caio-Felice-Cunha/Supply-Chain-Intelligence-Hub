@@ -6,6 +6,15 @@ __pycache__/
 .vscode/
 .idea/
 venv/
+.venv/
 node_modules/
 .DS_Store
 .guides/
+
+# Logs
+*.log
+
+# Test / tooling caches
+.pytest_cache/
+.coverage
+htmlcov/
