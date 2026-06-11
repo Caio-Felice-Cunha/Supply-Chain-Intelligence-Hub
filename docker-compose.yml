@@ -14,7 +14,7 @@ services:
       MYSQL_USER: ${MYSQL_USER:-analytics_user}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-analyticspass123}
     ports:
-      - "3307:3306"  # Expose on localhost:3306
+      - "3307:3306"  # Expose on host localhost:3307 (container port 3306)
     volumes:
       - mysql_data:/var/lib/mysql  # Persistent data storage
       - ./sql:/docker-entrypoint-initdb.d  # Auto-run SQL scripts on startup
@@ -49,7 +49,7 @@ services:
       NB_GID: 100
     networks:
       - analytics-network
-    command: ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--NotebookApp.token=analytics"]
+    command: ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--IdentityProvider.token=analytics"]
 
 networks:
   analytics-network:
