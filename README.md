@@ -1,106 +1,58 @@
 # Supply Chain Intelligence Hub
 
-**A comprehensive data analytics platform demonstrating enterprise-level data engineering and analytics capabilities.**
+**An end-to-end supply chain analytics build: one command spins up a MySQL database and a Python + R analytics engine, then an ETL pipeline with a data quality framework turns raw operations data into decision-ready analytics.**
 
+<img width="1065" height="702" alt="Supply Chain Intelligence Hub dashboard" src="https://github.com/user-attachments/assets/82815622-f52f-4ad4-b891-4321da712cf5" />
 
-<img width="1065" height="702" alt="image" src="https://github.com/user-attachments/assets/82815622-f52f-4ad4-b891-4321da712cf5" />
+## What this demonstrates
 
+A supply chain runs on questions like: which suppliers are slipping, which inventory is about to run out, what will demand look like next quarter. This project builds the full path from raw data to those answers:
 
+- **SQL**: dimensional modeling (star schema), CTEs, window functions, and stored procedures for repeatable analytics
+- **Python**: an ETL pipeline (extract, transform, validate, load) with logging and error handling
+- **Data quality**: profiling, statistical anomaly detection (Isolation Forest), and a generated HTML quality report
+- **R**: ARIMA time series forecasting, hypothesis testing, supplier performance analysis, and EOQ inventory optimization
+- **Power BI**: a 4-page interactive dashboard with DAX metrics, KPI tracking, and drill-through
+
+## Quick start
+
+```bash
+git clone https://github.com/Caio-Felice-Cunha/Supply-Chain-Intelligence-Hub.git
+cd Supply-Chain-Intelligence-Hub
+docker compose up
+```
+
+This starts MySQL (schema and seed data auto-load from `sql/`) and a Jupyter service with the full Python and R stack. Open the Jupyter service and run `notebooks/python/run_complete_pipeline.ipynb` to execute the complete ETL and data quality pipeline.
+
+## Project structure
 
 ```text
-supply-chain-intelligence-hub/
-│
-├── README.md
-│
-Supply-Chain-Intelligence-Hub
+Supply-Chain-Intelligence-Hub/
 │
 ├── docker/
-│   ├── Dockerfile.jupyter        # Python analytics engine
-│   └── Dockerfile.mysql          # PostgreSQL with sample data
+│   ├── Dockerfile.jupyter        # Python + R analytics engine
+│   └── Dockerfile.mysql          # MySQL with sample data
 │
 ├── data/
 │   └── python-insert-data.ipynb
 │
 ├── scripts/
-│   ├── etl/
-│	│	 ├── __init__.py
-│	│	 ├── config.py
-│	│	 ├── connection.py
-│	│	 ├── etl_pipeline.py
-│	│	 ├── extractor.py
-│	│	 ├── loader.py
-│	│	 ├── transformer.py
-│	│    └── validator.py       
-│   └── quality/
-│		 ├── __init__.py
-│		 ├── anomaly.py
-│		 ├── profiler.py
-│		 ├── reporter.py
-│	     └── roles_engine.py
+│   ├── etl/                      # config, connection, extractor, transformer, loader, validator
+│   └── quality/                  # profiler, anomaly detection, reporter, rules engine
 │
 ├── sql/
-│   ├── 1-init.sql		 			# Database + tables
-│   ├── 2-sql-insert-data.sql 		# Insert main data into the new tables
-│   └── 3-Stored-Procedures.sql 	# For quick analytics
+│   ├── 1-init.sql                # Database + tables
+│   ├── 2-sql-insert-data.sql     # Seed data
+│   └── 3-Stored-Procedures.sql   # Quick analytics
 │
 ├── notebooks/
-│   ├── python/
-│	│	 ├── __init__.py
-│	│	 ├── etl.execution.log
-│	│	 ├── pipeline.py
-│	│	 ├── python_analysis.ipynb
-│	│	 ├── quality_summary.json
-│	│	 ├── run_complete_pipeline.ipynb
-│	│	 ├── supply_chain_quality_report.html
-│	│    └──  test_imports.ipynb
-│   └── Documentarion/
+│   └── python/                   # pipeline runner, analysis notebooks, quality report
 │
-├── requirements.txt             # Python dependencies
-├── environment.yml              # R dependencies
-├── .gitignore
-├── docker-compose.yml           # Orchestrates all 3
-├── LICENSE
-└── .env
-
-
+├── requirements.txt              # Python dependencies
+├── environment.yml               # R dependencies
+└── docker-compose.yml            # Orchestrates the services
 ```
-## 🎯 Project Overview
 
-This portfolio project showcases a complete **end-to-end data analytics solution** built for supply chain optimization. It demonstrates mastery across:
+## License
 
-- **SQL**: Advanced database design, CTEs, window functions, stored procedures
-- **Python**: ETL pipelines, data validation, statistical analysis
-- **R**: Time series forecasting, statistical analysis, interactive visualizations
-- **Power BI**: Executive dashboards, KPI tracking, interactive reports
-
-## 📊 Key Features
-
-### **SQL**
-- ✅ Dimensional data modeling (star schema)
-- ✅ Complex CTEs and window functions
-- ✅ Stored procedures for automated analytics
-- ✅ Query optimization and indexing strategy
-- ✅ Real-time performance monitoring
-
-### **Python**
-- ✅ ETL pipeline with error handling
-- ✅ Data quality validation framework
-- ✅ Statistical anomaly detection (Isolation Forest)
-- ✅ Feature engineering and transformation
-- ✅ Logging and monitoring
-
-### **R**
-- ✅ ARIMA time series forecasting
-- ✅ Statistical hypothesis testing
-- ✅ Supplier performance analysis
-- ✅ Inventory optimization (EOQ model)
-- ✅ Interactive Plotly visualizations
-
-### **Power BI**
-- ✅ 4-page interactive dashboard
-- ✅ DAX formulas for calculated metrics
-- ✅ Real-time KPI tracking
-- ✅ Cross-filtering and drill-through
-- ✅ Executive summary & detailed analytics
-
-## 🏗️ Architecture
+MIT. See [LICENSE](./LICENSE).
