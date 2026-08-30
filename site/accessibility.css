@@ -1,0 +1,8 @@
+/* Contrast and keyboard guarantees kept separate from the generated runtime layer. */
+.section-head .run-badge {
+  color: #394940;
+}
+
+.decision-grid article > span {
+  color: #a94127;
+}

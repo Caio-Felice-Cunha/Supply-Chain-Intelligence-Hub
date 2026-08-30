@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 function observe(page) {
   const external = []; const errors = [];
@@ -52,3 +53,17 @@ test.describe('mobile and reduced motion', () => {
     expect(observed.errors).toEqual([]);
   });
 });
+
+for (const route of ['/', '/report/']) {
+  test(`WCAG AA audit passes for ${route}`, async ({ page }) => {
+    await page.goto(route);
+    await page.locator(route === '/' ? '#kpiRevenue' : '#rules tr').first().waitFor();
+    const { violations } = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+    const summary = violations.map(({ id, impact, nodes }) => ({
+      id,
+      impact,
+      targets: nodes.map((node) => node.target.join(' ')),
+    }));
+    expect(summary).toEqual([]);
+  });
+}
