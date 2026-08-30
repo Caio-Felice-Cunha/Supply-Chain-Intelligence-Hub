@@ -34,3 +34,7 @@ def test_smoke_cli_publishes_dashboard_report_and_verifiable_archive(tmp_path):
         assert "manifest.json" in bundle.namelist()
         assert len([name for name in bundle.namelist() if name.endswith(".csv")]) == 7
     assert (output / "report" / "index.html").exists()
+    page = (output / "index.html").read_text(encoding="utf-8")
+    assert 'href="accessibility.css"' in page
+    assert '<pre tabindex="0">' in page
+    assert (output / "accessibility.css").read_text(encoding="utf-8")
