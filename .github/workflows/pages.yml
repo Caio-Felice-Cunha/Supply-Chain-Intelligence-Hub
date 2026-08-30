@@ -49,6 +49,11 @@ jobs:
           path: site
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Print MySQL diagnostics
+        if: failure()
+        run: |
+          docker compose ps --all
+          docker compose logs mysql
       - name: Stop containers
         if: always()
         run: docker compose down --volumes

@@ -55,6 +55,11 @@ jobs:
         run: python -m scripts.orchestration.demo --scale smoke --seed 42 --output _docker_site
       - name: Verify database stages
         run: python -c "import json; d=json.load(open('_docker_site/data/pipeline-run.json')); assert all(x['state'] == 'PASS' for x in d['stages'] if x['stage'] in ('mysql_load','extract','processed_load'))"
+      - name: Print MySQL diagnostics
+        if: failure()
+        run: |
+          docker compose ps --all
+          docker compose logs mysql
       - name: Stop containers
         if: always()
         run: docker compose down --volumes
