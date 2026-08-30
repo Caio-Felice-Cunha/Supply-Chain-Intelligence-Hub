@@ -1084,10 +1084,10 @@ INSERT INTO price_history (product_id, supplier_id, unit_price, effective_date) 
 -- -- Insert sample suppliers
 -- INSERT INTO suppliers (supplier_name, contact_email, country, reliability_score)
 -- VALUES 
---     ('Global Parts Inc', 'contact@globalparts.com', 'USA', 0.95),
---     ('AsiaTech Components', 'sales@asiatech.com', 'China', 0.88),
---     ('European Supplies Ltd', 'info@eusupplies.com', 'Germany', 0.92),
---     ('Midwest Distributors', 'orders@midwestdist.com', 'USA', 0.89);
+--     ('Global Parts Inc', 'synthetic contact 1', 'USA', 0.95),
+--     ('AsiaTech Components', 'synthetic contact 2', 'China', 0.88),
+--     ('European Supplies Ltd', 'synthetic contact 3', 'Germany', 0.92),
+--     ('Midwest Distributors', 'synthetic contact 4', 'USA', 0.89);
 
 -- -- Insert sample products
 -- INSERT INTO products (product_name, category, unit_cost, supplier_id)

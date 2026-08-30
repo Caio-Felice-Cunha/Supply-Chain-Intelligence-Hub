@@ -1,12 +1,14 @@
 # Supply Chain Intelligence Hub
 
-**An end-to-end supply chain analytics build: one command spins up a MySQL database and a Python analytics engine, then an ETL pipeline with a data quality framework turns raw operations data into decision-ready analytics.**
+**A reproducible MySQL and Python data-engineering project that turns seeded supply-chain operations into a tested ETL flow and an inspectable data-quality report.**
 
-<img width="1065" height="702" alt="Supply Chain Intelligence Hub dashboard" src="https://github.com/user-attachments/assets/82815622-f52f-4ad4-b891-4321da712cf5" />
+![Supply Chain Intelligence Hub](assets/social-card.svg)
+
+[Try the generated report](https://caio-felice-cunha.github.io/Supply-Chain-Intelligence-Hub/) · [Read the case study](#what-this-demonstrates) · [Run locally](#quick-start) · [Open in Codespaces](https://codespaces.new/Caio-Felice-Cunha/Supply-Chain-Intelligence-Hub)
 
 ## What this demonstrates
 
-A supply chain runs on questions like: which suppliers are slipping, which inventory is about to run out, what will demand look like next quarter. This project builds the path from raw data to those answers:
+A supply chain runs on questions like: which suppliers are slipping, which inventory is close to its reorder level, and which transactions look anomalous. This project builds the data path needed to inspect those questions:
 
 - **SQL**: dimensional modeling (star schema), CTEs, window functions, and stored procedures for repeatable analytics
 - **Python ETL**: an extract, transform, validate pipeline with logging and error handling
@@ -26,6 +28,12 @@ This starts two services:
 - **Jupyter Lab** with the Python analytics stack. Open it at **http://localhost:8889/?token=analytics**.
 
 In Jupyter, run `notebooks/python/Documentation/run_complete_pipeline.ipynb` to execute the ETL and data quality pipeline against the seeded database.
+
+### Codespaces
+
+The included devcontainer installs the Python development requirements and
+supports Docker Compose from inside Codespaces. After the environment opens,
+run `docker compose up` and use the forwarded Jupyter port shown by Codespaces.
 
 > The MySQL credentials in this repo (`analytics_user` / `analyticspass123`) are local demo defaults for the bundled container, not production secrets. Override them with environment variables (see `.env.example`); the ETL code reads `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME`.
 
@@ -94,6 +102,9 @@ The following were part of the original plan and are not yet in the repo:
 
 - **R analysis**: ARIMA time series forecasting, hypothesis testing, supplier performance analysis, and EOQ inventory optimization. The Jupyter image already installs an R kernel and packages, so these would slot into `notebooks/`.
 - **Power BI**: an interactive dashboard with DAX metrics, KPI tracking, and drill-through.
+
+These roadmap items are not represented as current deliverables in the live
+report or in the portfolio.
 
 ## License
 
