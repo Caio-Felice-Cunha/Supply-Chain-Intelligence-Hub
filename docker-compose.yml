@@ -9,10 +9,10 @@ services:
       dockerfile: docker/Dockerfile.mysql
     container_name: supply-chain-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-local-root-only}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-supply_chain_db}
       MYSQL_USER: ${MYSQL_USER:-analytics_user}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-analyticspass123}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-local-demo-only}
     ports:
       - "3307:3306"  # Expose on host localhost:3307 (container port 3306)
     volumes:
@@ -50,7 +50,7 @@ services:
       DB_HOST: mysql
       DB_PORT: 3306
       DB_USER: ${MYSQL_USER:-analytics_user}
-      DB_PASSWORD: ${MYSQL_PASSWORD:-analyticspass123}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-local-demo-only}
       DB_NAME: ${MYSQL_DATABASE:-supply_chain_db}
     networks:
       - analytics-network

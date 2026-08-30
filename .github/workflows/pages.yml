@@ -36,7 +36,7 @@ jobs:
           DB_HOST: 127.0.0.1
           DB_PORT: 3307
           DB_USER: analytics_user
-          DB_PASSWORD: analyticspass123
+          DB_PASSWORD: local-demo-only
           DB_NAME: supply_chain_db
         run: python -m scripts.orchestration.demo --scale portfolio --seed 42 --output site
       - name: Assert release contract
