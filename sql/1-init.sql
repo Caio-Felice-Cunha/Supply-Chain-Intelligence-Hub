@@ -47,12 +47,13 @@ CREATE TABLE inventory (
     product_id INT NOT NULL,
     warehouse_id INT NOT NULL,
     quantity_on_hand INT CHECK (quantity_on_hand >= 0),
-    quantity_reserved INT CHECK (quantity_reserved >= 0 AND quantity_reserved <= quantity_on_hand),
+    quantity_reserved INT CHECK (quantity_reserved >= 0),
     snapshot_date DATE NOT NULL,
     controlled_risk BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (product_id) REFERENCES products(product_id),
     FOREIGN KEY (warehouse_id) REFERENCES warehouses(warehouse_id),
-    UNIQUE KEY unique_inventory (product_id, warehouse_id, snapshot_date)
+    UNIQUE KEY unique_inventory (product_id, warehouse_id, snapshot_date),
+    CONSTRAINT chk_inventory_reserved_balance CHECK (quantity_reserved <= quantity_on_hand)
 );
 
 -- Orders Table
