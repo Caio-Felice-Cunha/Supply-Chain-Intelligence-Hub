@@ -18,3 +18,8 @@ node_modules/
 .pytest_cache/
 .coverage
 htmlcov/
+playwright-report/
+test-results/
+.tmp-smoke/
+_smoke_site/
+_docker_site/

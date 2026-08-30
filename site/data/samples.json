@@ -1,0 +1,826 @@
+{
+  "inventory": [
+    {
+      "controlled_risk": false,
+      "inventory_id": 1,
+      "product_id": 1,
+      "quantity_available": 68,
+      "quantity_on_hand": 79,
+      "quantity_reserved": 11,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 1
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 2,
+      "product_id": 1,
+      "quantity_available": 69,
+      "quantity_on_hand": 86,
+      "quantity_reserved": 17,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 2
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 3,
+      "product_id": 1,
+      "quantity_available": 33,
+      "quantity_on_hand": 45,
+      "quantity_reserved": 12,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 3
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 4,
+      "product_id": 1,
+      "quantity_available": 59,
+      "quantity_on_hand": 76,
+      "quantity_reserved": 17,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 4
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 5,
+      "product_id": 1,
+      "quantity_available": 63,
+      "quantity_on_hand": 74,
+      "quantity_reserved": 11,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 5
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 6,
+      "product_id": 1,
+      "quantity_available": 66,
+      "quantity_on_hand": 88,
+      "quantity_reserved": 22,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 6
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 7,
+      "product_id": 2,
+      "quantity_available": 62,
+      "quantity_on_hand": 80,
+      "quantity_reserved": 18,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 1
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 8,
+      "product_id": 2,
+      "quantity_available": 78,
+      "quantity_on_hand": 86,
+      "quantity_reserved": 8,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 2
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 9,
+      "product_id": 2,
+      "quantity_available": 79,
+      "quantity_on_hand": 84,
+      "quantity_reserved": 5,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 3
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 10,
+      "product_id": 2,
+      "quantity_available": 75,
+      "quantity_on_hand": 92,
+      "quantity_reserved": 17,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 4
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 11,
+      "product_id": 2,
+      "quantity_available": 67,
+      "quantity_on_hand": 76,
+      "quantity_reserved": 9,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 5
+    },
+    {
+      "controlled_risk": false,
+      "inventory_id": 12,
+      "product_id": 2,
+      "quantity_available": 73,
+      "quantity_on_hand": 97,
+      "quantity_reserved": 24,
+      "snapshot_date": "2024-07-31T00:00:00",
+      "warehouse_id": 6
+    }
+  ],
+  "orders": [
+    {
+      "actual_delivery_date": "2024-07-29T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": 3.0,
+      "delivery_status": "LATE",
+      "expected_delivery_date": "2024-07-26T00:00:00",
+      "is_on_time": false,
+      "order_cost": 43364.63,
+      "order_date": "2024-07-01T00:00:00",
+      "order_id": 1,
+      "order_quantity": 507,
+      "product_id": 20,
+      "supplier_id": 20,
+      "warehouse_id": 3
+    },
+    {
+      "actual_delivery_date": "2024-10-12T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": 7.0,
+      "delivery_status": "LATE",
+      "expected_delivery_date": "2024-10-05T00:00:00",
+      "is_on_time": false,
+      "order_cost": 15633.43,
+      "order_date": "2024-09-22T00:00:00",
+      "order_id": 2,
+      "order_quantity": 606,
+      "product_id": 44,
+      "supplier_id": 8,
+      "warehouse_id": 2
+    },
+    {
+      "actual_delivery_date": "2025-10-27T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": -1.0,
+      "delivery_status": "DELIVERED",
+      "expected_delivery_date": "2025-10-28T00:00:00",
+      "is_on_time": true,
+      "order_cost": 52905.11,
+      "order_date": "2025-10-02T00:00:00",
+      "order_id": 3,
+      "order_quantity": 551,
+      "product_id": 21,
+      "supplier_id": 27,
+      "warehouse_id": 4
+    },
+    {
+      "actual_delivery_date": "2024-11-28T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": 0.0,
+      "delivery_status": "DELIVERED",
+      "expected_delivery_date": "2024-11-28T00:00:00",
+      "is_on_time": true,
+      "order_cost": 16091.67,
+      "order_date": "2024-11-19T00:00:00",
+      "order_id": 4,
+      "order_quantity": 144,
+      "product_id": 22,
+      "supplier_id": 4,
+      "warehouse_id": 2
+    },
+    {
+      "actual_delivery_date": "2024-09-15T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": 5.0,
+      "delivery_status": "LATE",
+      "expected_delivery_date": "2024-09-10T00:00:00",
+      "is_on_time": false,
+      "order_cost": 14612.64,
+      "order_date": "2024-09-03T00:00:00",
+      "order_id": 5,
+      "order_quantity": 428,
+      "product_id": 2,
+      "supplier_id": 14,
+      "warehouse_id": 1
+    },
+    {
+      "actual_delivery_date": "2025-07-26T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": -2.0,
+      "delivery_status": "DELIVERED",
+      "expected_delivery_date": "2025-07-28T00:00:00",
+      "is_on_time": true,
+      "order_cost": 21128.57,
+      "order_date": "2025-07-14T00:00:00",
+      "order_id": 6,
+      "order_quantity": 215,
+      "product_id": 135,
+      "supplier_id": 15,
+      "warehouse_id": 6
+    },
+    {
+      "actual_delivery_date": "2025-01-12T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": -1.0,
+      "delivery_status": "DELIVERED",
+      "expected_delivery_date": "2025-01-13T00:00:00",
+      "is_on_time": true,
+      "order_cost": 13820.78,
+      "order_date": "2025-01-05T00:00:00",
+      "order_id": 7,
+      "order_quantity": 166,
+      "product_id": 63,
+      "supplier_id": 21,
+      "warehouse_id": 3
+    },
+    {
+      "actual_delivery_date": "2025-11-05T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": 5.0,
+      "delivery_status": "LATE",
+      "expected_delivery_date": "2025-10-31T00:00:00",
+      "is_on_time": false,
+      "order_cost": 64214.07,
+      "order_date": "2025-10-23T00:00:00",
+      "order_id": 8,
+      "order_quantity": 592,
+      "product_id": 93,
+      "supplier_id": 21,
+      "warehouse_id": 1
+    },
+    {
+      "actual_delivery_date": "2024-10-11T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": 0.0,
+      "delivery_status": "DELIVERED",
+      "expected_delivery_date": "2024-10-11T00:00:00",
+      "is_on_time": true,
+      "order_cost": 27536.33,
+      "order_date": "2024-09-17T00:00:00",
+      "order_id": 9,
+      "order_quantity": 185,
+      "product_id": 139,
+      "supplier_id": 13,
+      "warehouse_id": 4
+    },
+    {
+      "actual_delivery_date": "2025-01-30T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": 0.0,
+      "delivery_status": "DELIVERED",
+      "expected_delivery_date": "2025-01-30T00:00:00",
+      "is_on_time": true,
+      "order_cost": 43491.62,
+      "order_date": "2025-01-21T00:00:00",
+      "order_id": 10,
+      "order_quantity": 363,
+      "product_id": 94,
+      "supplier_id": 28,
+      "warehouse_id": 4
+    },
+    {
+      "actual_delivery_date": "2025-10-18T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": -2.0,
+      "delivery_status": "DELIVERED",
+      "expected_delivery_date": "2025-10-20T00:00:00",
+      "is_on_time": true,
+      "order_cost": 42815.4,
+      "order_date": "2025-10-01T00:00:00",
+      "order_id": 11,
+      "order_quantity": 325,
+      "product_id": 38,
+      "supplier_id": 26,
+      "warehouse_id": 2
+    },
+    {
+      "actual_delivery_date": "2026-06-26T00:00:00",
+      "anomaly_type": "",
+      "delivery_delay_days": -1.0,
+      "delivery_status": "DELIVERED",
+      "expected_delivery_date": "2026-06-27T00:00:00",
+      "is_on_time": true,
+      "order_cost": 88764.5,
+      "order_date": "2026-06-08T00:00:00",
+      "order_id": 12,
+      "order_quantity": 511,
+      "product_id": 98,
+      "supplier_id": 26,
+      "warehouse_id": 4
+    }
+  ],
+  "price_history": [
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 1,
+      "product_id": 1,
+      "supplier_id": 7,
+      "unit_price": 21.23
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 2,
+      "product_id": 2,
+      "supplier_id": 14,
+      "unit_price": 34.49
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 3,
+      "product_id": 3,
+      "supplier_id": 21,
+      "unit_price": 49.28
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 4,
+      "product_id": 4,
+      "supplier_id": 28,
+      "unit_price": 63.53
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 5,
+      "product_id": 5,
+      "supplier_id": 5,
+      "unit_price": 76.71
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 6,
+      "product_id": 6,
+      "supplier_id": 12,
+      "unit_price": 91.7
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 7,
+      "product_id": 7,
+      "supplier_id": 19,
+      "unit_price": 101.61
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 8,
+      "product_id": 8,
+      "supplier_id": 26,
+      "unit_price": 116.98
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 9,
+      "product_id": 9,
+      "supplier_id": 3,
+      "unit_price": 127.05
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 10,
+      "product_id": 10,
+      "supplier_id": 10,
+      "unit_price": 140.73
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 11,
+      "product_id": 11,
+      "supplier_id": 17,
+      "unit_price": 155.36
+    },
+    {
+      "anomaly_type": "",
+      "effective_date": "2024-07-01T00:00:00",
+      "price_history_id": 12,
+      "product_id": 12,
+      "supplier_id": 24,
+      "unit_price": 164.78
+    }
+  ],
+  "products": [
+    {
+      "base_price": 28.07,
+      "category": "Electronics",
+      "demand_class": "B",
+      "product_id": 1,
+      "product_name": "SKU 001",
+      "reorder_level": 41,
+      "supplier_id": 7,
+      "unit_cost": 20.87
+    },
+    {
+      "base_price": 46.91,
+      "category": "Home",
+      "demand_class": "C",
+      "product_id": 2,
+      "product_name": "SKU 002",
+      "reorder_level": 58,
+      "supplier_id": 14,
+      "unit_cost": 34.24
+    },
+    {
+      "base_price": 66.42,
+      "category": "Outdoor",
+      "demand_class": "A",
+      "product_id": 3,
+      "product_name": "SKU 003",
+      "reorder_level": 75,
+      "supplier_id": 21,
+      "unit_cost": 47.61
+    },
+    {
+      "base_price": 86.59,
+      "category": "Office",
+      "demand_class": "B",
+      "product_id": 4,
+      "product_name": "SKU 004",
+      "reorder_level": 92,
+      "supplier_id": 28,
+      "unit_cost": 60.98
+    },
+    {
+      "base_price": 107.44,
+      "category": "Wellness",
+      "demand_class": "C",
+      "product_id": 5,
+      "product_name": "SKU 005",
+      "reorder_level": 109,
+      "supplier_id": 5,
+      "unit_cost": 74.35
+    },
+    {
+      "base_price": 128.95,
+      "category": "Kitchen",
+      "demand_class": "B",
+      "product_id": 6,
+      "product_name": "SKU 006",
+      "reorder_level": 126,
+      "supplier_id": 12,
+      "unit_cost": 87.72
+    },
+    {
+      "base_price": 147.26,
+      "category": "Electronics",
+      "demand_class": "C",
+      "product_id": 7,
+      "product_name": "SKU 007",
+      "reorder_level": 28,
+      "supplier_id": 19,
+      "unit_cost": 98.5
+    },
+    {
+      "base_price": 170.04,
+      "category": "Home",
+      "demand_class": "C",
+      "product_id": 8,
+      "product_name": "SKU 008",
+      "reorder_level": 45,
+      "supplier_id": 26,
+      "unit_cost": 111.87
+    },
+    {
+      "base_price": 165.32,
+      "category": "Outdoor",
+      "demand_class": "B",
+      "product_id": 9,
+      "product_name": "SKU 009",
+      "reorder_level": 62,
+      "supplier_id": 3,
+      "unit_cost": 125.24
+    },
+    {
+      "base_price": 186.43,
+      "category": "Office",
+      "demand_class": "C",
+      "product_id": 10,
+      "product_name": "SKU 010",
+      "reorder_level": 79,
+      "supplier_id": 10,
+      "unit_cost": 138.61
+    },
+    {
+      "base_price": 208.21,
+      "category": "Wellness",
+      "demand_class": "A",
+      "product_id": 11,
+      "product_name": "SKU 011",
+      "reorder_level": 96,
+      "supplier_id": 17,
+      "unit_cost": 151.98
+    },
+    {
+      "base_price": 230.66,
+      "category": "Kitchen",
+      "demand_class": "B",
+      "product_id": 12,
+      "product_name": "SKU 012",
+      "reorder_level": 113,
+      "supplier_id": 24,
+      "unit_cost": 165.35
+    }
+  ],
+  "sales": [
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 710.37,
+      "is_promotion": false,
+      "product_id": 146,
+      "quantity_sold": 9,
+      "revenue": 710.37,
+      "revenue_variance": 0.0,
+      "sale_date": "2024-07-01T00:00:00",
+      "sale_id": 1,
+      "unit_price": 78.93,
+      "warehouse_id": 1
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 727.89,
+      "is_promotion": false,
+      "product_id": 127,
+      "quantity_sold": 3,
+      "revenue": 727.89,
+      "revenue_variance": 0.0,
+      "sale_date": "2024-09-20T00:00:00",
+      "sale_id": 2,
+      "unit_price": 242.63,
+      "warehouse_id": 3
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 219.92,
+      "is_promotion": false,
+      "product_id": 96,
+      "quantity_sold": 1,
+      "revenue": 219.92,
+      "revenue_variance": 0.0,
+      "sale_date": "2024-08-16T00:00:00",
+      "sale_id": 3,
+      "unit_price": 219.92,
+      "warehouse_id": 4
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 202.5,
+      "is_promotion": false,
+      "product_id": 76,
+      "quantity_sold": 2,
+      "revenue": 202.5,
+      "revenue_variance": 0.0,
+      "sale_date": "2026-01-25T00:00:00",
+      "sale_id": 4,
+      "unit_price": 101.25,
+      "warehouse_id": 5
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 891.59,
+      "is_promotion": false,
+      "product_id": 49,
+      "quantity_sold": 7,
+      "revenue": 891.59,
+      "revenue_variance": 0.0,
+      "sale_date": "2025-01-25T00:00:00",
+      "sale_id": 5,
+      "unit_price": 127.37,
+      "warehouse_id": 1
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 437.43,
+      "is_promotion": true,
+      "product_id": 51,
+      "quantity_sold": 3,
+      "revenue": 437.43,
+      "revenue_variance": 0.0,
+      "sale_date": "2026-04-29T00:00:00",
+      "sale_id": 6,
+      "unit_price": 145.81,
+      "warehouse_id": 1
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 634.65,
+      "is_promotion": false,
+      "product_id": 49,
+      "quantity_sold": 5,
+      "revenue": 634.65,
+      "revenue_variance": 0.0,
+      "sale_date": "2025-11-16T00:00:00",
+      "sale_id": 7,
+      "unit_price": 126.93,
+      "warehouse_id": 4
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 189.8,
+      "is_promotion": false,
+      "product_id": 130,
+      "quantity_sold": 4,
+      "revenue": 189.8,
+      "revenue_variance": 0.0,
+      "sale_date": "2025-04-05T00:00:00",
+      "sale_id": 8,
+      "unit_price": 47.45,
+      "warehouse_id": 2
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 149.06,
+      "is_promotion": false,
+      "product_id": 103,
+      "quantity_sold": 2,
+      "revenue": 149.06,
+      "revenue_variance": 0.0,
+      "sale_date": "2025-07-13T00:00:00",
+      "sale_id": 9,
+      "unit_price": 74.53,
+      "warehouse_id": 6
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 410.97,
+      "is_promotion": false,
+      "product_id": 64,
+      "quantity_sold": 3,
+      "revenue": 410.97,
+      "revenue_variance": 0.0,
+      "sale_date": "2026-02-19T00:00:00",
+      "sale_id": 10,
+      "unit_price": 136.99,
+      "warehouse_id": 6
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 1234.35,
+      "is_promotion": false,
+      "product_id": 149,
+      "quantity_sold": 9,
+      "revenue": 1234.35,
+      "revenue_variance": 0.0,
+      "sale_date": "2025-09-17T00:00:00",
+      "sale_id": 11,
+      "unit_price": 137.15,
+      "warehouse_id": 3
+    },
+    {
+      "anomaly_type": "",
+      "calculated_revenue": 1102.55,
+      "is_promotion": true,
+      "product_id": 28,
+      "quantity_sold": 5,
+      "revenue": 1102.55,
+      "revenue_variance": 0.0,
+      "sale_date": "2024-08-12T00:00:00",
+      "sale_id": 12,
+      "unit_price": 220.51,
+      "warehouse_id": 2
+    }
+  ],
+  "suppliers": [
+    {
+      "country": "Canada",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 12,
+      "reliability_score": 83.25,
+      "supplier_id": 1,
+      "supplier_name": "Supplier 01"
+    },
+    {
+      "country": "United States",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 19,
+      "reliability_score": 94.5,
+      "supplier_id": 2,
+      "supplier_name": "Supplier 02"
+    },
+    {
+      "country": "Mexico",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 26,
+      "reliability_score": 78.0,
+      "supplier_id": 3,
+      "supplier_name": "Supplier 03"
+    },
+    {
+      "country": "Germany",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 9,
+      "reliability_score": 89.25,
+      "supplier_id": 4,
+      "supplier_name": "Supplier 04"
+    },
+    {
+      "country": "Japan",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 16,
+      "reliability_score": 73.5,
+      "supplier_id": 5,
+      "supplier_name": "Supplier 05"
+    },
+    {
+      "country": "Brazil",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 23,
+      "reliability_score": 84.0,
+      "supplier_id": 6,
+      "supplier_name": "Supplier 06"
+    },
+    {
+      "country": "Canada",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 6,
+      "reliability_score": 95.25,
+      "supplier_id": 7,
+      "supplier_name": "Supplier 07"
+    },
+    {
+      "country": "United States",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 13,
+      "reliability_score": 79.5,
+      "supplier_id": 8,
+      "supplier_name": "Supplier 08"
+    },
+    {
+      "country": "Mexico",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 20,
+      "reliability_score": 90.0,
+      "supplier_id": 9,
+      "supplier_name": "Supplier 09"
+    },
+    {
+      "country": "Germany",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 27,
+      "reliability_score": 74.25,
+      "supplier_id": 10,
+      "supplier_name": "Supplier 10"
+    },
+    {
+      "country": "Japan",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 10,
+      "reliability_score": 85.5,
+      "supplier_id": 11,
+      "supplier_name": "Supplier 11"
+    },
+    {
+      "country": "Brazil",
+      "created_date": "2024-07-01T00:00:00",
+      "lead_time_days": 17,
+      "reliability_score": 96.0,
+      "supplier_id": 12,
+      "supplier_name": "Supplier 12"
+    }
+  ],
+  "warehouses": [
+    {
+      "capacity_units": 63500,
+      "current_utilization_pct": 61.3,
+      "location": "Vancouver",
+      "warehouse_id": 1,
+      "warehouse_name": "Pacific DC"
+    },
+    {
+      "capacity_units": 72000,
+      "current_utilization_pct": 65.6,
+      "location": "Calgary",
+      "warehouse_id": 2,
+      "warehouse_name": "Prairie DC"
+    },
+    {
+      "capacity_units": 80500,
+      "current_utilization_pct": 69.9,
+      "location": "Toronto",
+      "warehouse_id": 3,
+      "warehouse_name": "Central DC"
+    },
+    {
+      "capacity_units": 89000,
+      "current_utilization_pct": 74.2,
+      "location": "Halifax",
+      "warehouse_id": 4,
+      "warehouse_name": "Atlantic DC"
+    },
+    {
+      "capacity_units": 97500,
+      "current_utilization_pct": 78.5,
+      "location": "Edmonton",
+      "warehouse_id": 5,
+      "warehouse_name": "North DC"
+    },
+    {
+      "capacity_units": 106000,
+      "current_utilization_pct": 82.8,
+      "location": "Montreal",
+      "warehouse_id": 6,
+      "warehouse_name": "Metro DC"
+    }
+  ]
+}

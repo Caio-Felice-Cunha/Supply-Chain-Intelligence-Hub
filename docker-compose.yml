@@ -47,6 +47,11 @@ services:
       JUPYTER_ENABLE_LAB: "yes"
       NB_UID: 1000
       NB_GID: 100
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: ${MYSQL_USER:-analytics_user}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-analyticspass123}
+      DB_NAME: ${MYSQL_DATABASE:-supply_chain_db}
     networks:
       - analytics-network
     command: ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--IdentityProvider.token=analytics"]

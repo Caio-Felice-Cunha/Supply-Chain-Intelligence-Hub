@@ -1,0 +1,40 @@
+{
+  "archive": "supply-chain-dataset-seed-42.zip",
+  "archive_sha256": "50560c89c2f9f6ee3872994a0482930e5702e1948ea2514e7a0338951df8c8db",
+  "date_range": [
+    "2024-07-01",
+    "2026-06-30"
+  ],
+  "project": "Supply Chain Intelligence Hub",
+  "scale": "portfolio",
+  "schema": {
+    "inventory": "Monthly SKU-by-warehouse inventory snapshots.",
+    "orders": "Purchase orders with expected/actual delivery outcomes.",
+    "price_history": "Supplier cost changes and controlled price jumps.",
+    "products": "SKU, category, demand class, economics, reorder point, and owner supplier.",
+    "sales": "Transaction facts with promotions and controlled demand spikes.",
+    "suppliers": "Supplier master data and reliability assumptions.",
+    "warehouses": "Distribution-centre capacity and location dimensions."
+  },
+  "seed": 42,
+  "source_counts": {
+    "inventory": 21600,
+    "orders": 8000,
+    "price_history": 2000,
+    "products": 150,
+    "sales": 70000,
+    "suppliers": 30,
+    "warehouses": 6
+  },
+  "source_rows": 101786,
+  "structural_integrity": "PASS",
+  "table_sha256": {
+    "inventory": "b3551e94caf5beb7a78116cbccf40428c07bbe19db56cdcd6267b55f29fc0e70",
+    "orders": "c057f7c9ae3bda4cbc349f56192a37dc290c66bfdedea0bb9d0519417bc39bce",
+    "price_history": "af96f5b52035322691462e44d1836ab9eb5d082d3dd3e6471946da60acab0305",
+    "products": "ab54371c8632c47370d711c54d56e61d9ff657fe2158602f8cdef8188f62b0f4",
+    "sales": "f8c2f2909fc84ccbc226b85ff07cb493255835bc609a4d2d2ff96115e0507b51",
+    "suppliers": "cfc4dab94ed88401afc377b0f7bb6d3282e5c1b4719994c07d7c0ce71b7864f5",
+    "warehouses": "9e1ccfadc766df13adeacf84b603c061178359c40a1545a7b184c06a0c6b446d"
+  }
+}

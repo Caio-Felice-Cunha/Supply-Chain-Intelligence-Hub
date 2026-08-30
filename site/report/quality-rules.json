@@ -1,0 +1,246 @@
+{
+  "failed": 0,
+  "passed": 40,
+  "rules": [
+    {
+      "name": "suppliers.row_count",
+      "observed": "30 / 30",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "products.row_count",
+      "observed": "150 / 150",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "warehouses.row_count",
+      "observed": "6 / 6",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "inventory.row_count",
+      "observed": "21,600 / 21,600",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "sales.row_count",
+      "observed": "70,000 / 70,000",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "orders.row_count",
+      "observed": "8,000 / 8,000",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "price_history.row_count",
+      "observed": "2,000 / 2,000",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "suppliers.supplier_id.primary_key",
+      "observed": "30 unique",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "products.product_id.primary_key",
+      "observed": "150 unique",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "warehouses.warehouse_id.primary_key",
+      "observed": "6 unique",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "inventory.inventory_id.primary_key",
+      "observed": "21,600 unique",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "sales.sale_id.primary_key",
+      "observed": "70,000 unique",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "orders.order_id.primary_key",
+      "observed": "8,000 unique",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "price_history.price_history_id.primary_key",
+      "observed": "2,000 unique",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "products.supplier_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "inventory.product_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "inventory.warehouse_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "sales.product_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "sales.warehouse_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "orders.supplier_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "orders.product_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "orders.warehouse_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "price_history.product_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "price_history.supplier_id.foreign_key",
+      "observed": "0 orphaned",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "products.non_negative_measures",
+      "observed": "0 invalid cells",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "warehouses.non_negative_measures",
+      "observed": "0 invalid cells",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "inventory.non_negative_measures",
+      "observed": "0 invalid cells",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "sales.non_negative_measures",
+      "observed": "0 invalid cells",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "orders.non_negative_measures",
+      "observed": "0 invalid cells",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "price_history.non_negative_measures",
+      "observed": "0 invalid cells",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "sales.revenue_formula",
+      "observed": "max delta 0.00",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "dataset.date_contract",
+      "observed": "2024-07-01 to 2026-06-30",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "dataset.controlled_business_anomalies",
+      "observed": "857 flagged",
+      "passed": true,
+      "severity": "INFO"
+    },
+    {
+      "name": "suppliers.source_processed_parity",
+      "observed": "30 = 30",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "products.source_processed_parity",
+      "observed": "150 = 150",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "warehouses.source_processed_parity",
+      "observed": "6 = 6",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "inventory.source_processed_parity",
+      "observed": "21,600 = 21,600",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "sales.source_processed_parity",
+      "observed": "70,000 = 70,000",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "orders.source_processed_parity",
+      "observed": "8,000 = 8,000",
+      "passed": true,
+      "severity": "ERROR"
+    },
+    {
+      "name": "price_history.source_processed_parity",
+      "observed": "2,000 = 2,000",
+      "passed": true,
+      "severity": "ERROR"
+    }
+  ]
+}

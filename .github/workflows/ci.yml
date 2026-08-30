@@ -5,7 +5,7 @@ on:
 permissions:
   contents: read
 jobs:
-  python-tests:
+  python-and-contracts:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,17 +14,47 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: python -m pip install -r requirements-dev.txt
-      - run: pytest
-  docker-smoke:
+      - run: python -m pytest
+      - name: Generate smoke-scale static artifacts
+        run: python -m scripts.orchestration.demo --scale smoke --seed 42 --output _smoke_site --database skip
+      - name: Verify generated contract
+        run: python -c "import json; d=json.load(open('_smoke_site/data/dashboard.json')); assert d['quality']['failed'] == 0"
+
+  pages-browser:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+
+  mysql-pipeline-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
       - name: Validate Compose model
         run: docker compose config --quiet
-      - name: Build and start seeded MySQL
+      - name: Start fresh seeded MySQL
         run: docker compose up -d --build --wait mysql
-      - name: Inspect healthy service
-        run: docker compose ps --status running mysql
+      - name: Run all seven tables through MySQL and processed load
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3307
+          DB_USER: analytics_user
+          DB_PASSWORD: analyticspass123
+          DB_NAME: supply_chain_db
+        run: python -m scripts.orchestration.demo --scale smoke --seed 42 --output _docker_site
+      - name: Verify database stages
+        run: python -c "import json; d=json.load(open('_docker_site/data/pipeline-run.json')); assert all(x['state'] == 'PASS' for x in d['stages'] if x['stage'] in ('mysql_load','extract','processed_load'))"
       - name: Stop containers
         if: always()
         run: docker compose down --volumes

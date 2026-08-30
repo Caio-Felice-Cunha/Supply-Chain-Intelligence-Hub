@@ -106,7 +106,11 @@ class DataQualityValidator:
         fk_mapping = {
             'products': {'supplier_id': 'suppliers'},
             'inventory': {'product_id': 'products', 'warehouse_id': 'warehouses'},
-            'orders': {'supplier_id': 'suppliers'},
+            'orders': {
+                'supplier_id': 'suppliers',
+                'product_id': 'products',
+                'warehouse_id': 'warehouses'
+            },
             'sales': {'product_id': 'products', 'warehouse_id': 'warehouses'},
             'price_history': {'product_id': 'products', 'supplier_id': 'suppliers'}
         }

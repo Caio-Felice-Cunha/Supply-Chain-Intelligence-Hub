@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Interactive dashboard and engineering case for a deterministic 101,786-row supply-chain data pipeline.">
+  <title>Supply Chain Intelligence Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="runtime.css">
+</head>
+<body>
+  <a class="skip-link" href="#dashboard">Skip to dashboard</a>
+  <header class="topbar"><a class="brand" href="#top" aria-label="Supply Chain Intelligence Hub home"><span>SC</span> Intelligence Hub</a><nav aria-label="Primary"><a href="#dashboard">Dashboard</a><a href="#pipeline">Pipeline</a><a href="#code">Code</a><a href="report/">Quality report</a></nav><a class="button compact" href="https://github.com/Caio-Felice-Cunha/Supply-Chain-Intelligence-Hub">View source ↗</a></header>
+  <main id="top">
+    <section class="hero shell">
+      <div><p class="eyebrow">DATA ENGINEERING · REPRODUCIBLE PORTFOLIO RUN</p><h1>From 101,786 source records<br>to decisions you can inspect.</h1><p class="lede">A fixed seed generates a realistic supply-chain network, round-trips all seven tables through MySQL, applies lossless ETL and quality contracts, then publishes an accessible analytics layer.</p><div class="actions"><a class="button primary" href="#dashboard">Try the dashboard</a><a class="button" href="#engineering">Engineering case</a><a class="button" href="downloads/supply-chain-dataset-seed-42.zip" download>Download dataset</a></div><p class="proof"><span>Seed 42</span><span>2024-07 → 2026-06</span><span>7 tables</span><span>No account or API</span></p></div>
+      <div class="hero-visual" role="img" aria-label="Seven source tables converge through a pipeline into an analytics layer."><div class="source-stack"><span>SUPPLIERS · 30</span><span>PRODUCTS · 150</span><span>WAREHOUSES · 6</span><span>INVENTORY · 21,600</span><span>SALES · 70,000</span><span>ORDERS · 8,000</span><span>PRICE · 2,000</span></div><div class="flow-arrow">→</div><div class="hub-orbit"><strong>101,786</strong><small>validated rows</small></div></div>
+    </section>
+
+    <section id="dashboard" class="dashboard shell" aria-labelledby="dashboard-title">
+      <header class="section-head"><div><p class="eyebrow">60-SECOND DEMO</p><h2 id="dashboard-title">Ask the network a question.</h2><p>Change any filter. Every KPI, chart, table, and fallback is recomputed from the same versioned aggregate cube.</p></div><p class="run-badge" id="runBadge">Loading release evidence…</p></header>
+      <div id="errorState" class="error-state" role="alert" hidden><strong>The dashboard data could not be loaded.</strong><span>Run the CLI locally or inspect the committed report.</span></div>
+      <form class="filters" id="filters"><label>From<select id="startPeriod"></select></label><label>To<select id="endPeriod"></select></label><label>Warehouse<select id="warehouse"><option value="">All warehouses</option></select></label><label>Category<select id="category"><option value="">All categories</option></select></label><label>Supplier<select id="supplier"><option value="">All suppliers</option></select></label><button class="text-button" type="reset">Reset filters</button></form>
+      <div class="kpis" aria-live="polite"><article><span>Revenue</span><strong id="kpiRevenue">—</strong><small>recognized sales</small></article><article><span>Units sold</span><strong id="kpiUnits">—</strong><small>across selected facts</small></article><article><span>On-time delivery</span><strong id="kpiOtd">—</strong><small>completed purchase orders</small></article><article><span>SKUs at risk</span><strong id="kpiRisk">—</strong><small>distinct below reorder point</small></article></div>
+      <div class="analytics-grid">
+        <article class="panel wide"><header><div><p class="panel-kicker">Demand signal</p><h3>Monthly sales and seasonality</h3></div><div class="legend"><span><i class="dot green"></i>Revenue</span><span><i class="dot coral"></i>Units</span></div></header><div id="salesChart" class="chart" role="img" aria-label="Monthly revenue line chart"></div><details><summary>Accessible monthly values</summary><div class="table-wrap"><table><thead><tr><th>Period</th><th>Revenue</th><th>Units</th></tr></thead><tbody id="monthlyRows"></tbody></table></div></details></article>
+        <article class="panel"><header><div><p class="panel-kicker">Inventory health</p><h3>Stock positions</h3></div></header><div id="inventoryBars" class="health-bars"></div><p class="note">A position is one SKU at one warehouse for one monthly snapshot.</p></article>
+        <article class="panel wide"><header><div><p class="panel-kicker">Supplier operations</p><h3>Delivery scorecard</h3></div><span class="meta" id="supplierMeta"></span></header><div class="table-wrap"><table><thead><tr><th>Supplier</th><th>Orders</th><th>On-time</th><th>Late days</th></tr></thead><tbody id="supplierRows"></tbody></table></div></article>
+        <article class="panel"><header><div><p class="panel-kicker">Controlled anomalies</p><h3>Known stress cases</h3></div></header><div id="anomalyGrid" class="anomaly-grid"></div><p class="note">Business anomalies are intentionally flagged; malformed keys and negative measures are never inserted.</p></article>
+      </div>
+    </section>
+
+    <section id="engineering" class="engineering shell">
+      <header class="section-head"><div><p class="eyebrow">ENGINEERING CASE</p><h2>The dashboard is the last stage, not the system.</h2><p>The operational contract lives in a Python CLI. MySQL, data contracts, aggregates, downloads, and this interface are outputs that can be regenerated and compared.</p></div></header>
+      <div class="decision-grid"><article><span>01</span><h3>Fixed, meaningful data</h3><p>Demand classes, seasonal weights, promotions, supplier reliability, delays, price changes, and stock risk all affect downstream metrics.</p></article><article><span>02</span><h3>Lossless ETL</h3><p>Every source row survives extract, transform, validation, and processed load. Derived fields add meaning without hiding rejected records.</p></article><article><span>03</span><h3>Static observability</h3><p>Pages reads only pre-aggregated JSON. It cannot mutate the database, rerun a pipeline, or publish operational data.</p></article></div>
+    </section>
+
+    <section id="pipeline" class="pipeline-section shell">
+      <div class="section-head"><div><p class="eyebrow">LINEAGE + OBSERVABILITY</p><h2>One command, eight observable stages.</h2></div><pre><code>python -m scripts.orchestration.demo \
+  --scale portfolio --seed 42 --output site</code></pre></div>
+      <ol id="lineage" class="lineage" aria-label="Pipeline stages"></ol>
+      <div class="table-wrap"><table><thead><tr><th>Stage</th><th>State</th><th>Rows in</th><th>Rows out</th><th>Duration</th></tr></thead><tbody id="lineageRows"></tbody></table></div>
+    </section>
+
+    <section class="model shell">
+      <header class="section-head"><div><p class="eyebrow">DATA MODEL</p><h2>Dimensions anchor three operational fact streams.</h2><p>The generated schema uses explicit primary keys, indexed foreign keys, and business constraints. Processed tables mirror the source grain and add derived fields.</p></div></header>
+      <svg class="er" viewBox="0 0 1100 520" role="img" aria-labelledby="erTitle erDesc"><title id="erTitle">Supply chain entity relationship diagram</title><desc id="erDesc">Suppliers relate to products and orders. Products and warehouses relate to inventory and sales. Products and suppliers relate to price history.</desc><g class="er-links"><path d="M230 105H430"/><path d="M230 105Q340 240 430 255"/><path d="M635 105H840"/><path d="M635 105Q750 250 840 260"/><path d="M635 105Q750 390 840 415"/><path d="M230 410H430"/><path d="M635 410H840"/></g><g class="entity"><rect x="25" y="40" width="205" height="130"/><text x="45" y="72">SUPPLIERS</text><text x="45" y="100">PK supplier_id</text><text x="45" y="124">reliability_score</text><text x="45" y="148">lead_time_days</text></g><g class="entity"><rect x="430" y="40" width="205" height="130"/><text x="450" y="72">PRODUCTS</text><text x="450" y="100">PK product_id</text><text x="450" y="124">FK supplier_id</text><text x="450" y="148">demand_class · price</text></g><g class="entity"><rect x="840" y="40" width="230" height="130"/><text x="860" y="72">SALES</text><text x="860" y="100">FK product_id</text><text x="860" y="124">FK warehouse_id</text><text x="860" y="148">revenue · promotion</text></g><g class="entity"><rect x="25" y="345" width="205" height="130"/><text x="45" y="377">WAREHOUSES</text><text x="45" y="405">PK warehouse_id</text><text x="45" y="429">capacity_units</text><text x="45" y="453">utilization_pct</text></g><g class="entity"><rect x="430" y="195" width="205" height="130"/><text x="450" y="227">ORDERS</text><text x="450" y="255">FK supplier/product</text><text x="450" y="279">expected · actual</text><text x="450" y="303">delivery_status</text></g><g class="entity"><rect x="840" y="195" width="230" height="130"/><text x="860" y="227">INVENTORY</text><text x="860" y="255">FK product/warehouse</text><text x="860" y="279">snapshot_date</text><text x="860" y="303">on_hand · reserved</text></g><g class="entity"><rect x="840" y="350" width="230" height="130"/><text x="860" y="382">PRICE_HISTORY</text><text x="860" y="410">FK product/supplier</text><text x="860" y="434">effective_date</text><text x="860" y="458">unit_price</text></g></svg>
+    </section>
+
+    <section id="code" class="code-section shell">
+      <header class="section-head"><div><p class="eyebrow">REAL, LINKED CODE</p><h2>The important logic is short enough to inspect.</h2></div></header>
+      <div class="code-grid">
+        <article><header><span>Deterministic generator</span><a href="https://github.com/Caio-Felice-Cunha/Supply-Chain-Intelligence-Hub/blob/main/scripts/generation/synthetic.py">synthetic.py ↗</a></header><pre><code>rng = np.random.default_rng(seed)
+promotion = rng.random(config.sales) &lt; 0.14
+anomaly = np.arange(1, config.sales + 1) % 997 == 0</code></pre><p>One seeded generator drives every probabilistic choice. Anomaly positions are deterministic and reviewable.</p></article>
+        <article><header><span>Lossless transform</span><a href="https://github.com/Caio-Felice-Cunha/Supply-Chain-Intelligence-Hub/blob/main/scripts/analytics/kpis.py">kpis.py ↗</a></header><pre><code>inventory['quantity_available'] = (
+  inventory.quantity_on_hand
+  - inventory.quantity_reserved
+)</code></pre><p>Derived columns preserve grain and source counts. Invalid structure would fail a contract instead of disappearing.</p></article>
+        <article><header><span>FK contract</span><a href="https://github.com/Caio-Felice-Cunha/Supply-Chain-Intelligence-Hub/blob/main/scripts/quality/contracts.py">contracts.py ↗</a></header><pre><code>orphaned = int((
+  ~child[column].isin(parent[parent_key])
+).sum())</code></pre><p>Each relationship is checked in Python after extract, in addition to MySQL constraints.</p></article>
+        <article><header><span>Analytics grain</span><a href="https://github.com/Caio-Felice-Cunha/Supply-Chain-Intelligence-Hub/blob/main/scripts/analytics/kpis.py">kpis.py ↗</a></header><pre><code>keys = ['period', 'warehouse_id',
+        'category', 'supplier_id']
+cube = sales.merge(orders, on=keys, how='outer')</code></pre><p>The browser filters a compact, versioned cube rather than downloading 100k source rows.</p></article>
+      </div>
+    </section>
+
+    <section class="formula-section shell"><header class="section-head"><div><p class="eyebrow">KPI CONTRACTS</p><h2>Definitions travel with the output.</h2></div></header><div class="formula-grid"><article><span>Revenue</span><code>Σ(quantity_sold × unit_price)</code><p>Rounded per transaction, then summed.</p></article><article><span>On-time delivery</span><code>on_time / completed × 100</code><p>In-transit orders are excluded from the denominator.</p></article><article><span>Stock risk</span><code>available / reorder_level &lt; 0.5</code><p>Distinct product IDs in a critical position at the selected end period.</p></article><article><span>Inventory health</span><code>available / reorder_level</code><p>Point-in-time at the selected end period: &lt;0.5 critical; &lt;1 low; &lt;3 optimal; otherwise excess.</p></article></div></section>
+
+    <section class="evidence shell"><div><p class="eyebrow">DATA EXPLORER</p><h2>Inspect samples before downloading.</h2><p>Twelve rows from each processed table are included in Pages. The complete deterministic CSV set, schema, manifest, seed, and hashes live in the ZIP.</p></div><div class="sample-controls"><label>Table<select id="sampleTable"></select></label><a class="button" href="data/manifest.json">Open manifest</a><a class="button" href="downloads/supply-chain-dataset-sha256.txt">Verify checksum</a></div><div id="sampleGrid" class="table-wrap sample-grid"></div></section>
+
+    <section class="quality shell"><header class="section-head"><div><p class="eyebrow">QUALITY + LIMITS</p><h2>Evidence is explicit; so are the boundaries.</h2></div><a class="button primary" href="report/">Open detailed report</a></header><div class="quality-grid"><article><strong id="qualityPassed">—</strong><span>contracts passed</span></article><article><strong id="qualityFailed">—</strong><span>contracts failed</span></article><article><strong>SHA-256</strong><span>archive + table checksums</span></article><article><strong>0</strong><span>external runtime services</span></article></div><div class="limits"><h3>Limitations</h3><ul><li>The data is synthetic and tuned to exercise engineering paths, not to benchmark a real company.</li><li>The dashboard is descriptive. It does not forecast demand, optimize orders, or mutate MySQL.</li><li>Stage timings describe the published machine and are operational evidence, not a performance claim.</li><li>MySQL is required for the release command; `--database skip` exists only for fast offline tests.</li></ul></div></section>
+
+    <section id="run" class="run shell"><div><p class="eyebrow">RUN LOCALLY</p><h2>Reproduce the same artifact.</h2><p>Start the bundled database, install the focused portfolio dependencies, then run the public CLI. Use `smoke` for a fast check or `portfolio` for all 101,786 source rows.</p></div><pre><code>docker compose up -d --build --wait mysql
+python -m pip install -r requirements-dev.txt
+python -m scripts.orchestration.demo \
+  --scale portfolio --seed 42 --output site
+python -m pytest</code></pre></section>
+  </main>
+  <footer><span>Supply Chain Intelligence Hub · deterministic engineering case</span><div><a href="report/">Quality report</a><a href="https://github.com/Caio-Felice-Cunha/Supply-Chain-Intelligence-Hub">Source</a></div></footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
