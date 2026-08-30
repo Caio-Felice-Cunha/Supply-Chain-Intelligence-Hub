@@ -9,15 +9,18 @@ services:
       dockerfile: docker/Dockerfile.mysql
     container_name: supply-chain-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-local-root-only}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-supply_chain_db}
       MYSQL_USER: ${MYSQL_USER:-analytics_user}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-analyticspass123}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-local-demo-only}
     ports:
       - "3307:3306"  # Expose on host localhost:3307 (container port 3306)
     volumes:
       - mysql_data:/var/lib/mysql  # Persistent data storage
-      - ./sql:/docker-entrypoint-initdb.d  # Auto-run SQL scripts on startup
+      # Bootstrap only the current schema and procedures. The legacy sample
+      # insert script is reference material and must not pre-seed demo runs.
+      - ./sql/1-init.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./sql/3-Stored-Procedures.sql:/docker-entrypoint-initdb.d/03-stored-procedures.sql:ro
     networks:
       - analytics-network
     healthcheck:
@@ -47,6 +50,11 @@ services:
       JUPYTER_ENABLE_LAB: "yes"
       NB_UID: 1000
       NB_GID: 100
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: ${MYSQL_USER:-analytics_user}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-local-demo-only}
+      DB_NAME: ${MYSQL_DATABASE:-supply_chain_db}
     networks:
       - analytics-network
     command: ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--IdentityProvider.token=analytics"]

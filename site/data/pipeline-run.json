@@ -1,0 +1,72 @@
+{
+  "database": "skip",
+  "mode": "portfolio",
+  "processed_rows": 101786,
+  "seed": 42,
+  "source_rows": 101786,
+  "stages": [
+    {
+      "duration_ms": 16504.94,
+      "rows_in": 0,
+      "rows_out": 101786,
+      "stage": "generate",
+      "state": "PASS"
+    },
+    {
+      "duration_ms": 0.0,
+      "rows_in": 101786,
+      "rows_out": 101786,
+      "stage": "mysql_load",
+      "state": "SKIPPED"
+    },
+    {
+      "duration_ms": 0.01,
+      "rows_in": 101786,
+      "rows_out": 101786,
+      "stage": "extract",
+      "state": "IN_MEMORY"
+    },
+    {
+      "duration_ms": 98.61,
+      "rows_in": 101786,
+      "rows_out": 101786,
+      "stage": "transform",
+      "state": "PASS"
+    },
+    {
+      "duration_ms": 45.2,
+      "rows_in": 101786,
+      "rows_out": 101786,
+      "stage": "validate",
+      "state": "PASS"
+    },
+    {
+      "duration_ms": 0.0,
+      "rows_in": 101786,
+      "rows_out": 101786,
+      "stage": "processed_load",
+      "state": "IN_MEMORY"
+    },
+    {
+      "duration_ms": 923.29,
+      "rows_in": 101786,
+      "rows_out": 4320,
+      "stage": "aggregate",
+      "state": "PASS"
+    },
+    {
+      "duration_ms": 1419.1,
+      "rows_in": 4320,
+      "rows_out": 11,
+      "stage": "publish",
+      "state": "PASS"
+    }
+  ],
+  "summary": {
+    "duration_ms": 18993.21,
+    "quality_failures": 0,
+    "quality_rules": 40,
+    "state": "PASS"
+  },
+  "tool": "supply-chain-intelligence-hub"
+}

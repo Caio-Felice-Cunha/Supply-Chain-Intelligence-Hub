@@ -1,0 +1,14 @@
+{
+  "name": "supply-chain-intelligence-hub-pages",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python -m http.server 4175 --directory site",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "^1.55.0"
+  }
+}

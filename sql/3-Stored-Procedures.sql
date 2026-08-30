@@ -61,7 +61,7 @@ BEGIN
         s.reliability_score
     FROM suppliers s
     LEFT JOIN orders o ON s.supplier_id = o.supplier_id
-    WHERE o.order_date >= DATE_SUB(CURDATE(), INTERVAL 180 DAY)
+    WHERE o.order_date >= DATE_SUB((SELECT MAX(order_date) FROM orders), INTERVAL 180 DAY)
     GROUP BY s.supplier_id, s.supplier_name, s.reliability_score
     HAVING total_orders > 0
     ORDER BY on_time_pct DESC;
@@ -82,7 +82,7 @@ BEGIN
             SUM(quantity_sold) as daily_quantity,
             SUM(revenue) as daily_revenue
         FROM sales
-        WHERE sale_date >= DATE_SUB(CURDATE(), INTERVAL 365 DAY)
+        WHERE sale_date >= DATE_SUB((SELECT MAX(sale_date) FROM sales), INTERVAL 365 DAY)
         GROUP BY sale_date, product_id
     ),
     rolling_stats AS (
@@ -118,7 +118,7 @@ BEGIN
         volatility_90day,
         ROUND(moving_avg_30day * 1.2, 0) as conservative_forecast
     FROM rolling_stats
-    WHERE sale_date >= DATE_SUB(CURDATE(), INTERVAL 90 DAY)
+    WHERE sale_date >= DATE_SUB((SELECT MAX(sale_date) FROM sales), INTERVAL 90 DAY)
     ORDER BY product_id, sale_date DESC;
 END //
 

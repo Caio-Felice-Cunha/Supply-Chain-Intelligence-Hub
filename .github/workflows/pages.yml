@@ -1,11 +1,7 @@
-name: Deploy quality report to Pages
+name: Build and deploy portfolio dataset
 on:
   push:
     branches: [main]
-    paths:
-      - outputs/reports/supply_chain_quality_report.html
-      - outputs/quality_summary.json
-      - .github/workflows/pages.yml
   workflow_dispatch:
 permissions:
   contents: read
@@ -15,22 +11,55 @@ concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: python -m pip install -r requirements-dev.txt
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Start clean MySQL
+        run: docker compose up -d --build --wait mysql
+      - name: Generate the 101,786-row release artifact
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3307
+          DB_USER: analytics_user
+          DB_PASSWORD: local-demo-only
+          DB_NAME: supply_chain_db
+        run: python -m scripts.orchestration.demo --scale portfolio --seed 42 --output site
+      - name: Assert release contract
+        run: python -c "import json; d=json.load(open('site/data/dashboard.json')); assert d['meta']['source_rows'] == 101786 and d['quality']['failed'] == 0"
+      - name: Test dashboard and report
+        run: npm run test:e2e
       - uses: actions/configure-pages@v5
-      - name: Prepare static report
-        shell: bash
-        run: |
-          mkdir -p _site
-          cp outputs/reports/supply_chain_quality_report.html _site/index.html
-          cp outputs/quality_summary.json _site/quality_summary.json
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: site
+      - name: Print MySQL diagnostics
+        if: failure()
+        run: |
+          docker compose ps --all
+          docker compose logs mysql
+      - name: Stop containers
+        if: always()
+        run: docker compose down --volumes
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build-release
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -1,0 +1,4 @@
+/* Author display rules must never override native hidden-state semantics. */
+[hidden] {
+  display: none !important;
+}

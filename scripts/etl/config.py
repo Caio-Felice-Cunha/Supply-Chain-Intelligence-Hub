@@ -19,10 +19,10 @@ class ETLConfig:
     defaults are demo-only credentials for the bundled MySQL container, not
     production secrets.
     """
-    db_host: str = field(default_factory=lambda: os.environ.get("DB_HOST", "mysql"))
-    db_port: int = field(default_factory=lambda: int(os.environ.get("DB_PORT", "3306")))
+    db_host: str = field(default_factory=lambda: os.environ.get("DB_HOST", "127.0.0.1"))
+    db_port: int = field(default_factory=lambda: int(os.environ.get("DB_PORT", "3307")))
     db_user: str = field(default_factory=lambda: os.environ.get("DB_USER", "analytics_user"))
-    db_password: str = field(default_factory=lambda: os.environ.get("DB_PASSWORD", "analyticspass123"))
+    db_password: str = field(default_factory=lambda: os.environ.get("DB_PASSWORD", "local-demo-only"))
     db_name: str = field(default_factory=lambda: os.environ.get("DB_NAME", "supply_chain_db"))
     batch_size: int = 1000
     max_retries: int = 3
